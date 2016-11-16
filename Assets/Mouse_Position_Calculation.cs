@@ -8,7 +8,8 @@ public class Mouse_Position_Calculation : MonoBehaviour {
     public Transform UpperLeft;
     public Transform UpperRight;
     public Transform moveCube;
-    public Collider_Script myCScript;
+    public RayTest myCamera;
+    //public Collider_Script myCScript;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +18,11 @@ public class Mouse_Position_Calculation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void OnMouseDown() {
-        myCScript.lookAt(Input.mousePosition);
+
+        myCamera.drawRay();
+        
+        
+        /*//myCScript.lookAt(Input.mousePosition);
 
         //Debug.Log("Mouse Clicked: " + Input.mousePosition);
         float _xRelativePosition = Input.mousePosition.x / Screen.width;
@@ -37,7 +42,7 @@ public class Mouse_Position_Calculation : MonoBehaviour {
             );
         
 
-        moveCube.position = _middleAverage;
+        moveCube.position = _middleAverage;*/
 
 
     }
