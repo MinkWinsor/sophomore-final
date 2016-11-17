@@ -9,9 +9,9 @@ public class movePlayer : MonoBehaviour {
     public float gravity = 5;
 
 
-    private const float MAX_SPEED_FACTOR = 1;
+    //private const float MAX_SPEED_FACTOR = 1;
 
-    private float maxSpeed;
+    //private float maxSpeed;
     
     private Vector3 force;
     private CharacterController myCC;
@@ -24,7 +24,7 @@ public class movePlayer : MonoBehaviour {
         OnlyUpdateScript.UserMovementInput += rotatePlayerHandler;
         OnlyUpdateScript.UserMovementInput += addForceHandler;
         OnlyUpdateScript.PhysicsUpdates += movePlayerHandler;
-        maxSpeed = speed * MAX_SPEED_FACTOR;
+        //maxSpeed = speed * MAX_SPEED_FACTOR;
 	}
 
     IEnumerator moveScript()
@@ -65,7 +65,7 @@ public class movePlayer : MonoBehaviour {
         }
 
 
-        //After force is added, force is limited to the maximum speed constraint.
+        /*//After force is added, force is limited to the maximum speed constraint.
         if(force.x > maxSpeed)
         {
             force.x = maxSpeed;
@@ -73,7 +73,7 @@ public class movePlayer : MonoBehaviour {
         if (force.z > maxSpeed)
         {
             force.z = maxSpeed;
-        }
+        }*/
     }
 
     void rotatePlayerHandler(KeyCode code)
