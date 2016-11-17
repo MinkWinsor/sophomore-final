@@ -7,7 +7,9 @@ public class movePlayer : MonoBehaviour {
     public float rotateSpeed = 20;
     public float dragFactor = 0.5f;
     public float gravity = 5;
-    public const float MAX_SPEED_FACTOR = 1;
+
+
+    private const float MAX_SPEED_FACTOR = 1;
 
     private float maxSpeed;
     
@@ -49,10 +51,10 @@ public class movePlayer : MonoBehaviour {
 
     }
 
-    public float getRelativeSpeed()
+    /*public float getRelativeSpeed()
     {
-        return ((Mathf.Abs(force.x) + (Mathf.Abs(force.z))) / (maxSpeed * 2));
-    }
+        return ((Mathf.Abs(force.x) + (Mathf.Abs(force.z))) / (speed * 2));
+    }*/
 	
     void addForceHandler(KeyCode code)
     {
