@@ -31,10 +31,7 @@ public class movePlayer : MonoBehaviour {
     {
         while (true)
         {
-            
-
             yield return new WaitForSeconds(0.1f);
-
             if (!Input.GetKey(KeyCode.UpArrow))
             {
                 if (force.x > 0)
@@ -46,12 +43,7 @@ public class movePlayer : MonoBehaviour {
                 if (force.z < 0)
                     force.z -= force.z * dragFactor;
             }
-                
-
-            
         }
-
-
     }*/
 
     /*public float getRelativeSpeed()
@@ -95,12 +87,13 @@ public class movePlayer : MonoBehaviour {
 
     void movePlayerHandler()
     {
+        
         myCC.Move(force * Time.deltaTime * speed);
 
         if (!Input.GetKey(KeyCode.UpArrow) || rotatedRecently)
         {
             if (force.x > 0)
-                force.x -= force.x * dragFactor * Time.deltaTime;
+                force.x -= force.x * dragFactor * Time.deltaTime; //Questionable whether I need Time.deltatime here.
             if (force.z > 0)
                 force.z -= force.z * dragFactor * Time.deltaTime;
             if (force.x < 0)
@@ -111,19 +104,22 @@ public class movePlayer : MonoBehaviour {
         }
     }
 
+
+    //This script is called to simulate a crash, slowing down the player over 1 second. 
+    //Usually called by a child object with a collider.
 	public IEnumerator Crash()
     {
         for(int i = 0; i < 10; i++)
         {
             print("crashing");
             if (force.x > 0)
-                force.x -= force.x * 0.5f;
+                force.x -= force.x * dragFactor;
             if (force.z > 0)
-                force.z -= force.z * 0.5f;
+                force.z -= force.z * dragFactor;
             if (force.x < 0)
-                force.x -= force.x * 0.5f;
+                force.x -= force.x * dragFactor;
             if (force.z < 0)
-                force.z -= force.z * 0.5f;
+                force.z -= force.z * dragFactor;
             yield return new WaitForSeconds(0.1f);
         }
         

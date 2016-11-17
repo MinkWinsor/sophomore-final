@@ -28,7 +28,7 @@ public class OnlyUpdateScript : MonoBehaviour {
             UserMovementInput(KeyCode.UpArrow);
         }
 
-        PhysicsUpdates();
+        
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -37,6 +37,10 @@ public class OnlyUpdateScript : MonoBehaviour {
 
     }
 
+    void FixedUpdate()
+    {
+        PhysicsUpdates();
+    }
 
 
 
