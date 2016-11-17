@@ -6,14 +6,14 @@ public class OnlyUpdateScript : MonoBehaviour {
 
     public static Action<KeyCode> UserMovementInput;
     public static Action GraphicalUpdates;
+    public static Action PhysicsUpdates;
 	
 	// Update is called once per frame
     //This is the script I'm going to use all of the update calls in.
 	void Update () {
 
         GraphicalUpdates();
-
-        print("Update");
+       
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -28,6 +28,16 @@ public class OnlyUpdateScript : MonoBehaviour {
             UserMovementInput(KeyCode.UpArrow);
         }
 
+        PhysicsUpdates();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 
     }
+
+
+
+
 }

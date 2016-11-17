@@ -16,19 +16,16 @@ public class movePlayer : MonoBehaviour {
         force.y = -gravity;
         myCC = GetComponent<CharacterController>();
         StartCoroutine(moveScript());
-        OnlyUpdateScript.UserMovementInput += rotatePlayer;
-        OnlyUpdateScript.UserMovementInput += addForce;
+        OnlyUpdateScript.UserMovementInput += rotatePlayerHandler;
+        OnlyUpdateScript.UserMovementInput += addForceHandler;
+        OnlyUpdateScript.PhysicsUpdates += movePlayerHandler;
 	}
 
     IEnumerator moveScript()
     {
         while (true)
         {
-
-            /*if (Input.GetKey(KeyCode.UpArrow))
-            {
-                force += transform.forward;
-            }*/
+            
 
             yield return new WaitForSeconds(0.1f);
 
@@ -42,23 +39,22 @@ public class movePlayer : MonoBehaviour {
             if (force.z < 0)
                 force.z -= force.z * dragFactor;
 
-            myCC.Move(force * Time.deltaTime * speed);
+            
         }
 
 
     }
 	
-    void addForce(KeyCode code)
+    void addForceHandler(KeyCode code)
     {
-        print("Forward");
 
         if (code == KeyCode.UpArrow)
         {
-            force += transform.forward;
+            force += transform.forward * Time.deltaTime;
         }
     }
 
-    void rotatePlayer(KeyCode code)
+    void rotatePlayerHandler(KeyCode code)
     {
         if (code == KeyCode.RightArrow)
         {
@@ -70,18 +66,10 @@ public class movePlayer : MonoBehaviour {
         }
     }
 
-	// Update is called once per frame
-	void Update () {
-
-        
-
-        /*if (force.x != 0 || force.y != 0)
-        {
-            force -= transform.forward * dragFactor;
-        }*/
-        
-
-        
-        
+    void movePlayerHandler()
+    {
+        myCC.Move(force * Time.deltaTime * speed);
     }
+
+	
 }

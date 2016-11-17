@@ -5,15 +5,18 @@ public class CameraRotate : MonoBehaviour {
 
     public Transform playerRef;
 
-	// Use this for initialization
-	void Start () {
+    public const float CAMERA_OFFSET_Y = 15;
+    public const float CAMERA_OFFSET_Z = 10;
+
+    // Use this for initialization
+    void Start () {
         OnlyUpdateScript.GraphicalUpdates += positionCamera;
 	}
 	
 	// Update is called once per frame
 	void positionCamera () {
 
-        transform.position = new Vector3(playerRef.position.x, playerRef.position.y + 15, playerRef.position.z - 10);
+        transform.position = new Vector3(playerRef.position.x, playerRef.position.y + CAMERA_OFFSET_Y, playerRef.position.z - CAMERA_OFFSET_Z);
 
 	}
 }
