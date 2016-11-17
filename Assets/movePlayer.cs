@@ -117,13 +117,13 @@ public class movePlayer : MonoBehaviour {
         {
             print("crashing");
             if (force.x > 0)
-                force.x -= force.x * 0.75f;
+                force.x -= force.x * 0.5f;
             if (force.z > 0)
-                force.z -= force.z * 0.75f;
+                force.z -= force.z * 0.5f;
             if (force.x < 0)
-                force.x -= force.x * 0.75f;
+                force.x -= force.x * 0.5f;
             if (force.z < 0)
-                force.z -= force.z * 0.75f;
+                force.z -= force.z * 0.5f;
             yield return new WaitForSeconds(0.1f);
         }
         

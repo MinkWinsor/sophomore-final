@@ -8,16 +8,16 @@ public class HUD_MovementDisplay : MonoBehaviour {
     public Slider mySlider;
     public Image compass;
     public Transform playerRef;
-    private Vector3 lastPlayerPos;
+   
     private CharacterController playerCC;
-    private movePlayer playerRefScript;
+    //private movePlayer playerRefScript;
 
 	// Use this for initialization
 	void Start () {
         OnlyUpdateScript.GraphicalUpdates += sliderUpdate;
         OnlyUpdateScript.GraphicalUpdates += compassUpdate;
-        lastPlayerPos = playerRef.transform.position;
-        playerRefScript = playerRef.GetComponent<movePlayer>();
+        
+        //playerRefScript = playerRef.GetComponent<movePlayer>();
         playerCC = playerRef.GetComponent<CharacterController>();
     }
 
