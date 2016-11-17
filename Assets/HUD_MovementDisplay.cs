@@ -9,15 +9,16 @@ public class HUD_MovementDisplay : MonoBehaviour {
     public Image compass;
     public Transform playerRef;
     private Vector3 lastPlayerPos;
-    public CharacterController playerCC;
-    //private movePlayer playerRefScript;
+    private CharacterController playerCC;
+    private movePlayer playerRefScript;
 
 	// Use this for initialization
 	void Start () {
         OnlyUpdateScript.GraphicalUpdates += sliderUpdate;
         OnlyUpdateScript.GraphicalUpdates += compassUpdate;
         lastPlayerPos = playerRef.transform.position;
-        //playerRefScript = playerRef.GetComponent<movePlayer>();
+        playerRefScript = playerRef.GetComponent<movePlayer>();
+        playerCC = playerRef.GetComponent<CharacterController>();
     }
 
     private void compassUpdate()
@@ -31,6 +32,14 @@ public class HUD_MovementDisplay : MonoBehaviour {
         //mySlider.value = playerRefScript.getRelativeSpeed();
         //Vector3 tempVector = ((playerRef.transform.position + lastPlayerPos) / (playerRef.transform.position + (movePlayer.speed, movePlayer.speed, movePlayer.speed) )    );
         print(playerCC.velocity);
+        if((Mathf.Abs(playerCC.velocity.x) > Mathf.Abs(playerCC.velocity.z))){
+            mySlider.value = (Mathf.Abs(playerCC.velocity.x));
+        }
+        else
+        {
+            mySlider.value = (Mathf.Abs(playerCC.velocity.z));
+        }
+        //mySlider.value = ((Mathf.Abs(playerCC.velocity.x) + Mathf.Abs(playerCC.velocity.z)) / playerRefScript.speed * 2);
         //lastPlayerPos = playerRef.transform.position;
     }
 }

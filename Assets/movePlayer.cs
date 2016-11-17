@@ -9,10 +9,10 @@ public class movePlayer : MonoBehaviour {
     public float gravity = 5;
 
 
-    //private const float MAX_SPEED_FACTOR = 1;
+    private const float MAX_SPEED_FACTOR = 2;
 
-    //private float maxSpeed;
-    
+    private float maxSpeed;
+    private bool rotatedRecently;
     private Vector3 force;
     private CharacterController myCC;
 
@@ -20,11 +20,11 @@ public class movePlayer : MonoBehaviour {
 	void Start () {
         force.y = -gravity;
         myCC = GetComponent<CharacterController>();
-        StartCoroutine(moveScript());
+        //StartCoroutine(moveScript());
         OnlyUpdateScript.UserMovementInput += rotatePlayerHandler;
         OnlyUpdateScript.UserMovementInput += addForceHandler;
         OnlyUpdateScript.PhysicsUpdates += movePlayerHandler;
-        //maxSpeed = speed * MAX_SPEED_FACTOR;
+        maxSpeed = speed * MAX_SPEED_FACTOR;
 	}
 
     IEnumerator moveScript()
@@ -35,15 +35,18 @@ public class movePlayer : MonoBehaviour {
 
             yield return new WaitForSeconds(0.1f);
 
-            print("Current Vector: " + force);
-            if (force.x > 0)
-                force.x -= force.x * dragFactor;
-            if (force.z > 0)
-                force.z -= force.z * dragFactor;
-            if (force.x < 0)
-                force.x -= force.x * dragFactor;
-            if (force.z < 0)
-                force.z -= force.z * dragFactor;
+            if (!Input.GetKey(KeyCode.UpArrow))
+            {
+                if (force.x > 0)
+                    force.x -= force.x * dragFactor;
+                if (force.z > 0)
+                    force.z -= force.z * dragFactor;
+                if (force.x < 0)
+                    force.x -= force.x * dragFactor;
+                if (force.z < 0)
+                    force.z -= force.z * dragFactor;
+            }
+                
 
             
         }
@@ -65,7 +68,7 @@ public class movePlayer : MonoBehaviour {
         }
 
 
-        /*//After force is added, force is limited to the maximum speed constraint.
+        //After force is added, force is limited to the maximum speed.
         if(force.x > maxSpeed)
         {
             force.x = maxSpeed;
@@ -73,7 +76,7 @@ public class movePlayer : MonoBehaviour {
         if (force.z > maxSpeed)
         {
             force.z = maxSpeed;
-        }*/
+        }
     }
 
     void rotatePlayerHandler(KeyCode code)
@@ -91,7 +94,36 @@ public class movePlayer : MonoBehaviour {
     void movePlayerHandler()
     {
         myCC.Move(force * Time.deltaTime * speed);
+
+        if (!Input.GetKey(KeyCode.UpArrow) || rotatedRecently)
+        {
+            if (force.x > 0)
+                force.x -= force.x * dragFactor * Time.deltaTime;
+            if (force.z > 0)
+                force.z -= force.z * dragFactor * Time.deltaTime;
+            if (force.x < 0)
+                force.x -= force.x * dragFactor * Time.deltaTime;
+            if (force.z < 0)
+                force.z -= force.z * dragFactor * Time.deltaTime;
+            rotatedRecently = false;
+        }
     }
 
-	
+	public IEnumerator Crash()
+    {
+        for(int i = 0; i < 10; i++)
+        {
+            print("crashing");
+            if (force.x > 0)
+                force.x -= force.x * 0.75f;
+            if (force.z > 0)
+                force.z -= force.z * 0.75f;
+            if (force.x < 0)
+                force.x -= force.x * 0.75f;
+            if (force.z < 0)
+                force.z -= force.z * 0.75f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        
+    }
 }
