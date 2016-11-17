@@ -12,7 +12,7 @@ public class movePlayer : MonoBehaviour {
     private const float MAX_SPEED_FACTOR = 2;
 
     private float maxSpeed;
-    private bool rotatedRecently;
+    private bool rotatedRecently = false;
     private Vector3 force;
     private CharacterController myCC;
 
@@ -27,7 +27,7 @@ public class movePlayer : MonoBehaviour {
         maxSpeed = speed * MAX_SPEED_FACTOR;
 	}
 
-    IEnumerator moveScript()
+    /*IEnumerator moveScript()
     {
         while (true)
         {
@@ -52,7 +52,7 @@ public class movePlayer : MonoBehaviour {
         }
 
 
-    }
+    }*/
 
     /*public float getRelativeSpeed()
     {
@@ -84,10 +84,12 @@ public class movePlayer : MonoBehaviour {
         if (code == KeyCode.RightArrow)
         {
             transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
+            rotatedRecently = true;
         }
         if (code == KeyCode.LeftArrow)
         {
             transform.Rotate(0, -rotateSpeed * Time.deltaTime, 0);
+            rotatedRecently = true;
         }
     }
 
