@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class movePlayer : MonoBehaviour {
+public class movePlayer : MonoBehaviour, IMoving {
 
     public float speed = 5;
     public float rotateSpeed = 20;
@@ -21,9 +21,9 @@ public class movePlayer : MonoBehaviour {
         force.y = -gravity;
         myCC = GetComponent<CharacterController>();
         //StartCoroutine(moveScript());
-        OnlyUpdateScript.UserMovementInput += rotatePlayerHandler;
+        OnlyUpdateScript.UserMovementInput += rotateHandler;
         OnlyUpdateScript.UserMovementInput += addForceHandler;
-        OnlyUpdateScript.PhysicsUpdates += movePlayerHandler;
+        OnlyUpdateScript.PhysicsUpdates += moveHandler;
         maxSpeed = speed * MAX_SPEED_FACTOR;
 	}
 
@@ -71,7 +71,7 @@ public class movePlayer : MonoBehaviour {
         }
     }
 
-    void rotatePlayerHandler(KeyCode code)
+    public void rotateHandler(KeyCode code)
     {
         if (code == KeyCode.RightArrow)
         {
@@ -85,7 +85,7 @@ public class movePlayer : MonoBehaviour {
         }
     }
 
-    void movePlayerHandler()
+    public void moveHandler()
     {
         
         myCC.Move(force * Time.deltaTime * speed);
