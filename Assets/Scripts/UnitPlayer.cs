@@ -1,11 +1,20 @@
-﻿using UnityEngine;
+﻿/*
+ 
+ 
+ */
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
 public class UnitPlayer : Unit {
 
-    public Image healthBar;
+    
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     public override float TakeDamage(float _damage)
     {
         base.TakeDamage(_damage);
@@ -14,9 +23,13 @@ public class UnitPlayer : Unit {
         return health;
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     public override float AddHealth(float _addedHealth)
     {
-        return 0;
+        return (base.AddHealth(_addedHealth));
     }
 
 

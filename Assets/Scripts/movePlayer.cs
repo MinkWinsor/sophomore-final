@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿/*
+ 
+ 
+ */
+
+using UnityEngine;
 using System.Collections;
 
 public class movePlayer : MonoBehaviour, IMoving {
@@ -16,41 +21,23 @@ public class movePlayer : MonoBehaviour, IMoving {
     private Vector3 force;
     private CharacterController myCC;
 
-	// Use this for initialization
-	void Start () {
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
+    void Start () {
         force.y = -gravity;
         myCC = GetComponent<CharacterController>();
-        //StartCoroutine(moveScript());
         OnlyUpdateScript.UserMovementInput += rotateHandler;
         OnlyUpdateScript.UserMovementInput += addForceHandler;
         OnlyUpdateScript.PhysicsUpdates += moveHandler;
         maxSpeed = speed * MAX_SPEED_FACTOR;
 	}
 
-    /*IEnumerator moveScript()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(0.1f);
-            if (!Input.GetKey(KeyCode.UpArrow))
-            {
-                if (force.x > 0)
-                    force.x -= force.x * dragFactor;
-                if (force.z > 0)
-                    force.z -= force.z * dragFactor;
-                if (force.x < 0)
-                    force.x -= force.x * dragFactor;
-                if (force.z < 0)
-                    force.z -= force.z * dragFactor;
-            }
-        }
-    }*/
-
-    /*public float getRelativeSpeed()
-    {
-        return ((Mathf.Abs(force.x) + (Mathf.Abs(force.z))) / (speed * 2));
-    }*/
-	
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     void addForceHandler(KeyCode code)
     {
 
@@ -71,6 +58,10 @@ public class movePlayer : MonoBehaviour, IMoving {
         }
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     public void rotateHandler(KeyCode code)
     {
         if (code == KeyCode.RightArrow)
@@ -85,6 +76,10 @@ public class movePlayer : MonoBehaviour, IMoving {
         }
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     public void moveHandler()
     {
         
@@ -105,9 +100,11 @@ public class movePlayer : MonoBehaviour, IMoving {
     }
 
 
-    //This script is called to simulate a crash, slowing down the player over 1 second. 
-    //Usually called by a child object with a collider.
-	public IEnumerator Crash()
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
+    public IEnumerator Crash()
     {
         for(int i = 0; i < 10; i++)
         {

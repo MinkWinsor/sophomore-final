@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿/*
+ 
+ 
+ */
+
+using UnityEngine;
 using System.Collections;
 using System;
 
@@ -7,10 +12,12 @@ public class OnlyUpdateScript : MonoBehaviour {
     public static Action<KeyCode> UserMovementInput;
     public static Action GraphicalUpdates;
     public static Action PhysicsUpdates;
-	
-	// Update is called once per frame
-    //This is the script I'm going to use all of the update calls in.
-	void Update () {
+
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
+    void Update () {
 
         GraphicalUpdates();
        
@@ -28,15 +35,17 @@ public class OnlyUpdateScript : MonoBehaviour {
             UserMovementInput(KeyCode.UpArrow);
         }
 
-        
-
+        //Listens for Escape key, quits program when pressed.
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
-
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     void FixedUpdate()
     {
         PhysicsUpdates();
