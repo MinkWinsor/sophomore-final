@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface IMoving
+/*public interface IMoving
 {
     void moveHandler();
-}
+}*/

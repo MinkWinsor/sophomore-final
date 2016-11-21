@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class CameraRotate : MonoBehaviour {
+public class CameraRotate : MonoBehaviour, IPausable {
 
     public Transform playerRef;
 
@@ -19,4 +20,14 @@ public class CameraRotate : MonoBehaviour {
         transform.position = new Vector3(playerRef.position.x, playerRef.position.y + CAMERA_OFFSET_Y, playerRef.position.z - CAMERA_OFFSET_Z);
 
 	}
+
+    public void OnPause()
+    {
+        OnlyUpdateScript.GraphicalUpdates += positionCamera;
+    }
+
+    public void OnUnPause()
+    {
+        OnlyUpdateScript.GraphicalUpdates -= positionCamera;
+    }
 }

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface Firing
+/*public interface IFiring
 {
     void Fire();
-    float HitTarget(float damageDone);	
-}
+    float HitTarget(float damageDone);
+}*/
