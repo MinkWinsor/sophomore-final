@@ -20,7 +20,7 @@ public class UnitPlayer : Unit {
     {
         base.TakeDamage(_damage);
         healthBar.transform.localScale = new Vector3((health / healthMax), 1, 1);
-        print(health);
+        
         return health;
     }
 
