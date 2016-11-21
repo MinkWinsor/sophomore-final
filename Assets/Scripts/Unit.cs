@@ -54,7 +54,7 @@ public abstract class Unit : MonoBehaviour {
     //CALLED BY: TakeDamage, or other functions that would kill the unit. This function should only be called by it's own class.
     public virtual void Kill()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
     
 }

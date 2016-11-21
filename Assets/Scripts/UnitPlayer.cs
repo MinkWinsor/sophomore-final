@@ -32,5 +32,10 @@ public class UnitPlayer : Unit {
     {
         return (base.AddHealth(_addedHealth));
     }
-    
+
+
+    public override void Kill()
+    {
+        SceneControl.ReloadCurrentScene();
+    }
 }
