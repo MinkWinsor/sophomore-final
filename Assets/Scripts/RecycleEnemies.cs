@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class RecycleEnemies : Recycler
 {
-    public Transform SpawnPosition;
+    
     public float TimeToWait = 1;
     public bool CanSpawn = true;
 
@@ -31,7 +31,7 @@ public class RecycleEnemies : Recycler
         if (!RecyclableItems[listIndex].gameObject.activeSelf)
         {
 
-            RecyclableItems[listIndex].transform.position = SpawnPosition.position;
+            
             
 
             if (RecyclableItems[listIndex].GetComponent<MoveOnNavMesh>() != null)

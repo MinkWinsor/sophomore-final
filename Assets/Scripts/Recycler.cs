@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Recycler : MonoBehaviour {
 
+    public List<Transform> SpawnPositions;
     public List<Recyclable> RecyclableItems;
 
     protected int listIndex = 0;
@@ -23,6 +24,7 @@ public class Recycler : MonoBehaviour {
 
     public virtual void RecycleOneObject()
     {
+        RecyclableItems[listIndex].transform.position = RandomPosition();
         RecyclableItems[listIndex].gameObject.SetActive(true);
         if (listIndex < RecyclableItems.Count - 1)
         {
@@ -32,10 +34,13 @@ public class Recycler : MonoBehaviour {
         {
             listIndex = 0;
         }
+    }
 
-        
-
-        
+    protected Vector3 RandomPosition()
+    {
+        Vector3 tempTransform;
+        tempTransform = SpawnPositions[Random.Range(0, SpawnPositions.Count)].transform.position;
+        return tempTransform;
     }
     
 }
