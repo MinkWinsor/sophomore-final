@@ -12,6 +12,10 @@ public class OnlyUpdateScript : MonoBehaviour {
     public static Action<KeyCode> UserMovementInput;
     public static Action GraphicalUpdates;
     public static Action PhysicsUpdates;
+    public static Action PauseScripts;
+    public static Action UnPauseScripts;
+
+    public bool isPaused = false;
 
     //FUNCTION:
     //CALLED BY:
@@ -33,6 +37,23 @@ public class OnlyUpdateScript : MonoBehaviour {
         if (Input.GetKey(KeyCode.UpArrow))
         {
             UserMovementInput(KeyCode.UpArrow);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            
+            if (!isPaused)
+            {
+                print("Paused");
+                PauseScripts();
+                isPaused = true;
+            }
+            else
+            {
+                print("Unpaused");
+                UnPauseScripts();
+                isPaused = false;
+            }
         }
 
         //Listens for Escape key, quits program when pressed.
