@@ -21,6 +21,7 @@ public class MoveOnNavMesh : MonoBehaviour {
 
     public void setNewTarget()
     {
+        
         agent.destination = target.position;
     }
 
