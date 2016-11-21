@@ -3,13 +3,23 @@ using System.Collections;
 
 public class ProximityColission : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    private MoveOnNavMesh meshAgentScript;
+    private UnitShooter shooterScript;
+
+    // Use this for initialization
+    void Start () {
+        meshAgentScript = GetComponentInParent<MoveOnNavMesh>();
+        shooterScript = GetComponentInParent<UnitShooter>();
+    }
 	
+	void OnTriggerEnter (Collider other) {
+        meshAgentScript.StopMoving();
+        shooterScript.CanShoot = true;
+        StartCoroutine(shooterScript.Fire(other.transform.position));
 	}
-	
-	// Update is called once per frame
-	void OnTriggerEnter () {
-	
-	}
+
+    void OnTriggerExit()
+    {
+        meshAgentScript.StartMoving();
+    }
 }

@@ -24,6 +24,7 @@ public class Bullet : Recyclable {
     
     void OnTriggerEnter(Collider other)
     {
+        print("COLLISION");
         if (other.GetComponent<UnitPlayer>())
         {
             other.GetComponent<UnitPlayer>().TakeDamage(damagePerBullet);

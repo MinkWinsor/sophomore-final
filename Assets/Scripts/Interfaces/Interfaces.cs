@@ -10,7 +10,7 @@ public interface IPausable
 
 public interface IFiring
 {
-    void Fire();
+    IEnumerator Fire(Vector3 target);
     float HitTarget(float damageDone);
 }
 

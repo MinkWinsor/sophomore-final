@@ -17,7 +17,6 @@ public class RecycleEnemies : Recycler
 
     protected override void RecycleActionHandler(Recyclable _r)
     {
-        print("adding to list");
         if (_r.GetComponent<MoveOnNavMesh>() != null)
         {
             _r.GetComponent<MoveOnNavMesh>().StopMoving();
