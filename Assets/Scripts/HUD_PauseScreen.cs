@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class HUD_PauseScreen : MonoBehaviour {
+public class HUD_PauseScreen : MonoBehaviour, IPausable {
 
     public Transform PauseScreenParentNode;
     public List<Transform> PauseScreenObjects;
@@ -20,11 +20,11 @@ public class HUD_PauseScreen : MonoBehaviour {
             pauseElement.gameObject.SetActive(false);
         }
 
-        OnlyUpdateScript.PauseScripts += DisplayPauseScreen;
-        OnlyUpdateScript.UnPauseScripts += HidePauseScreen;
+        OnlyUpdateScript.PauseScripts += OnPause;
+        OnlyUpdateScript.UnPauseScripts += OnUnPause;
     }
 
-    public void DisplayPauseScreen()
+    public void OnPause()
     {
         foreach (Transform pauseElement in PauseScreenObjects)
         {
@@ -34,7 +34,7 @@ public class HUD_PauseScreen : MonoBehaviour {
 
     }
 
-    public void HidePauseScreen()
+    public void OnUnPause()
     {
         foreach (Transform pauseElement in PauseScreenObjects)
         {
