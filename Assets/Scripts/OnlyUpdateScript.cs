@@ -60,7 +60,7 @@ public class OnlyUpdateScript : MonoBehaviour {
         //Listens for Escape key, quits program when pressed.
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            SceneControl.QuitGame();
         }
     }
 
