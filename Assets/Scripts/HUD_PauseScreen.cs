@@ -15,10 +15,7 @@ public class HUD_PauseScreen : MonoBehaviour, IPausable {
             PauseScreenObjects.Add(child);
         }
 
-        foreach (Transform pauseElement in PauseScreenObjects)
-        {
-            pauseElement.gameObject.SetActive(false);
-        }
+        OnUnPause();
 
         OnlyUpdateScript.PauseScripts += OnPause;
         OnlyUpdateScript.UnPauseScripts += OnUnPause;
