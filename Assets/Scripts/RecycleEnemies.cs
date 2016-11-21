@@ -27,22 +27,38 @@ public class RecycleEnemies : Recycler
 
     public override void RecycleOneObject()
     {
-        if (!RecyclableItems[listIndex].gameObject.activeSelf)
+        for(int tryCount = 0; tryCount < 6; tryCount++) //Ensures that if all objects are in use, recycler won't pour in extra efforts to recycle something.
         {
-
-            
-            
-
-            if (RecyclableItems[listIndex].GetComponent<MoveOnNavMesh>() != null)
+            if (!RecyclableItems[listIndex].gameObject.activeSelf)
             {
-                RecyclableItems[listIndex].GetComponent<MoveOnNavMesh>().StartMoving();
+                RecyclableItems[listIndex].transform.position = RandomPosition();
+                base.RecycleOneObject();
+                if (listIndex > 0)
+                {
+                    startNav(listIndex - 1);
+                }
+                else
+                {
+                    startNav(RecyclableItems.Count - 1);
+                }
+                tryCount = 6;
             }
-            RecyclableItems[listIndex].transform.position = RandomPosition();
-            base.RecycleOneObject();
+            else
+            {
+                listIndex++;
+            }
         }
+        
         
     }
     
+    private void startNav(int _index)
+    {
+        if (RecyclableItems[_index].GetComponent<MoveOnNavMesh>() != null)
+        {
+            RecyclableItems[_index].GetComponent<MoveOnNavMesh>().StartMoving();
+        }
+    }
 
     IEnumerator SpawnOnTimer()
     {

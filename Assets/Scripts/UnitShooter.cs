@@ -12,7 +12,7 @@ public class UnitShooter : Unit, IFiring {
     void Start()
     {
         meshAgentScript = GetComponentInParent<MoveOnNavMesh>();
-        StartCoroutine(Fire());
+
     }
 
     public override void Kill()

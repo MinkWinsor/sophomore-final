@@ -21,5 +21,6 @@ public class ProximityColission : MonoBehaviour {
     void OnTriggerExit()
     {
         meshAgentScript.StartMoving();
+        shooterScript.CanShoot = false;
     }
 }
