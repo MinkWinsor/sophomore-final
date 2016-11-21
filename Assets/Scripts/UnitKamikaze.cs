@@ -3,13 +3,16 @@ using System.Collections;
 
 public class UnitKamikaze : Unit {
 
-    /*public override void Start()
-    {
+    private MoveOnNavMesh meshAgentScript;
 
-    }*/
+    void Start()
+    {
+        meshAgentScript = GetComponentInParent<MoveOnNavMesh>();
+    }
 
     public override void Kill()
     {
-        base.Kill();
+        meshAgentScript.StopMoving();
+        gameObject.SetActive(false);
     }
 }

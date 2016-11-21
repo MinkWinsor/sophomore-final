@@ -25,6 +25,19 @@ public class MoveOnNavMesh : MonoBehaviour {
         agent.destination = target.position;
     }
 
+    public void StopMoving()
+    {
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+        OnlyUpdateScript.PhysicsUpdates -= setNewTarget;
+    }
+    public void StartMoving()
+    {
+        agent.updatePosition = true;
+        agent.updateRotation = true;
+        OnlyUpdateScript.PhysicsUpdates += setNewTarget;
+    }
+
     protected virtual void OnDestroy()
     {
         OnlyUpdateScript.PhysicsUpdates -= setNewTarget;

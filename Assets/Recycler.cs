@@ -16,13 +16,14 @@ public class Recycler : MonoBehaviour {
 
     protected virtual void RecycleActionHandler(Recyclable _r)
     {
-        print("adding to list");
+        
          RecyclableItems.Add(_r);
         _r.gameObject.SetActive(false);
     }
 
     public virtual void RecycleOneObject()
     {
+        RecyclableItems[listIndex].gameObject.SetActive(true);
         if (listIndex < RecyclableItems.Count - 1)
         {
             listIndex++;
@@ -32,7 +33,7 @@ public class Recycler : MonoBehaviour {
             listIndex = 0;
         }
 
-        RecyclableItems[listIndex].gameObject.SetActive(true);
+        
 
         
     }

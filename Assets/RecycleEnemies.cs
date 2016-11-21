@@ -15,24 +15,34 @@ public class RecycleEnemies : Recycler
         StartCoroutine(SpawnOnTimer());
     }
 
-    public override void RecycleOneObject()
-    {
-        base.RecycleOneObject();
-        RecyclableItems[listIndex].transform.position = SpawnPosition.position;
-        if (RecyclableItems[listIndex].GetComponent<MoveOnNavMesh>() != null)
-        {
-            RecyclableItems[listIndex].GetComponent<MoveOnNavMesh>().enabled = true;
-        }
-    }
-
     protected override void RecycleActionHandler(Recyclable _r)
     {
+        print("adding to list");
         if (_r.GetComponent<MoveOnNavMesh>() != null)
         {
-            _r.GetComponent<MoveOnNavMesh>().enabled = false;
+            _r.GetComponent<MoveOnNavMesh>().StopMoving();
         }
         base.RecycleActionHandler(_r);
+        
     }
+
+    public override void RecycleOneObject()
+    {
+        if (!RecyclableItems[listIndex].gameObject.activeSelf)
+        {
+
+            RecyclableItems[listIndex].transform.position = SpawnPosition.position;
+            
+
+            if (RecyclableItems[listIndex].GetComponent<MoveOnNavMesh>() != null)
+            {
+                RecyclableItems[listIndex].GetComponent<MoveOnNavMesh>().StartMoving();
+            }
+            base.RecycleOneObject();
+        }
+        
+    }
+    
 
     IEnumerator SpawnOnTimer()
     {
@@ -40,7 +50,6 @@ public class RecycleEnemies : Recycler
         {
             yield return new WaitForSeconds(TimeToWait);
             RecycleOneObject();
-            print("Spawning");
         }
     }
 }
