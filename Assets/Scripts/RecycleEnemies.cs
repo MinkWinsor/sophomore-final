@@ -11,7 +11,8 @@ public class RecycleEnemies : Recycler
 
     protected override void Start()
     {
-        base.Start();
+        RecyclableItems = new List<Recyclable>();
+        EnemyRecyclable.RecyclerAction += RecycleActionHandler;
         StartCoroutine(SpawnOnTimer());
     }
 

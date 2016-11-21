@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class Recyclable : MonoBehaviour {
+public abstract class Recyclable : MonoBehaviour {
 
     public static Action<Recyclable> RecyclerAction;
 

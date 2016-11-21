@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class Recycler : MonoBehaviour {
+public abstract class Recycler : MonoBehaviour {
 
     public List<Transform> SpawnPositions;
     public List<Recyclable> RecyclableItems;

@@ -4,7 +4,7 @@ using System;
 
 public class Bullet : Recyclable {
 
-    public static new Action<Recyclable> RecyclerAction;
+    public static new Action<Bullet> RecyclerAction;
 
     public Transform targetPos;
     public float speed = 100;
