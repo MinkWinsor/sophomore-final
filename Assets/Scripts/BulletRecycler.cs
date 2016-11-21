@@ -4,12 +4,13 @@ using System.Collections.Generic;
 
 public class BulletRecycler : Recycler {
 
-	
+    public new List<Bullet> RecyclableItems;
+
     protected override void Start()
     {
         print("Check");
-        RecyclableItems = new List<Recyclable>();
-        Bullet.RecyclerAction += RecycleActionHandler;
+        RecyclableItems = new List<Bullet>();
+        Bullet.BulletRecyclerAction += RecycleActionHandler;
     }
 
     public override void RecycleOneObject()

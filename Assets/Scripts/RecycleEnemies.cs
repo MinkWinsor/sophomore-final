@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 public class RecycleEnemies : Recycler
 {
-    
+    public new List<EnemyRecyclable> RecyclableItems;
     public float TimeToWait = 1;
     public bool CanSpawn = true;
 
     protected override void Start()
     {
-        RecyclableItems = new List<Recyclable>();
-        EnemyRecyclable.RecyclerAction += RecycleActionHandler;
+        RecyclableItems = new List<EnemyRecyclable>();
+        EnemyRecyclable.EnemyRecyclerAction += RecycleActionHandler;
         StartCoroutine(SpawnOnTimer());
     }
 

@@ -4,7 +4,7 @@ using System;
 
 public class Bullet : Recyclable {
 
-    public static new Action<Bullet> RecyclerAction;
+    public static Action<Bullet> BulletRecyclerAction;
 
     public Transform targetPos;
     public float speed = 100;
@@ -14,8 +14,16 @@ public class Bullet : Recyclable {
     protected override void Start()
     {
         OnlyUpdateScript.PhysicsUpdates += moveBullet;
-        
-        base.Start();
+
+        if (BulletRecyclerAction != null)
+        {
+
+            BulletRecyclerAction(this);
+        }
+        else
+        {
+            print("RECYCLER NULL");
+        }
     }
 
 
