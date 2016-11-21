@@ -17,6 +17,8 @@ public class OnlyUpdateScript : MonoBehaviour {
 
     public bool isPaused = false;
 
+
+
     //FUNCTION:
     //CALLED BY:
     //INPUTS:
@@ -48,6 +50,7 @@ public class OnlyUpdateScript : MonoBehaviour {
                 PauseScripts();
                 isPaused = true;
                 Time.timeScale = 0;
+
             }
             else
             {
