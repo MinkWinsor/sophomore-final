@@ -5,8 +5,9 @@
 
 using UnityEngine;
 using System.Collections;
+using System;
 
-public class movePlayer : MonoBehaviour, IMoving {
+public class movePlayer : MonoBehaviour, IMoving, IPausable {
 
     public float speed = 5;
     public float rotateSpeed = 20;
@@ -31,6 +32,8 @@ public class movePlayer : MonoBehaviour, IMoving {
         OnlyUpdateScript.UserMovementInput += rotateHandler;
         OnlyUpdateScript.UserMovementInput += addForceHandler;
         OnlyUpdateScript.PhysicsUpdates += moveHandler;
+        OnlyUpdateScript.PauseScripts += OnPause;
+        OnlyUpdateScript.UnPauseScripts += OnUnPause;
         maxSpeed = speed * MAX_SPEED_FACTOR;
 	}
 
@@ -120,5 +123,21 @@ public class movePlayer : MonoBehaviour, IMoving {
             yield return new WaitForSeconds(0.1f);
         }
         
+    }
+
+
+
+    public void OnPause()
+    {
+        OnlyUpdateScript.UserMovementInput -= rotateHandler;
+        OnlyUpdateScript.UserMovementInput -= addForceHandler;
+        OnlyUpdateScript.PhysicsUpdates -= moveHandler;
+    }
+
+    public void OnUnPause()
+    {
+        OnlyUpdateScript.UserMovementInput += rotateHandler;
+        OnlyUpdateScript.UserMovementInput += addForceHandler;
+        OnlyUpdateScript.PhysicsUpdates += moveHandler;
     }
 }

@@ -12,6 +12,7 @@ public class MoveOnNavMesh : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         agent.destination = target.position;
         OnlyUpdateScript.PhysicsUpdates += setNewTarget;
+
     }
 
     public void setNewTarget (Transform newTarget)

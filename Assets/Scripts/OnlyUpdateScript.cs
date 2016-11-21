@@ -23,34 +23,33 @@ public class OnlyUpdateScript : MonoBehaviour {
     //OUTPUTS:
     void Update () {
 
-        GraphicalUpdates();
+        if (GraphicalUpdates != null)
+            GraphicalUpdates();
        
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && UserMovementInput != null)
         {
             UserMovementInput(KeyCode.LeftArrow);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) && UserMovementInput != null)
         {
             UserMovementInput(KeyCode.RightArrow);
         }
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) && UserMovementInput != null)
         {
             UserMovementInput(KeyCode.UpArrow);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && PauseScripts != null)
         {
             
             if (!isPaused)
             {
-                print("Paused");
                 PauseScripts();
                 isPaused = true;
             }
             else
             {
-                print("Unpaused");
                 UnPauseScripts();
                 isPaused = false;
             }
@@ -69,9 +68,17 @@ public class OnlyUpdateScript : MonoBehaviour {
     //OUTPUTS:
     void FixedUpdate()
     {
-        PhysicsUpdates();
+        if(PhysicsUpdates != null)
+            PhysicsUpdates();
     }
 
-
+    void OnDestroy()
+    {
+        UserMovementInput = null;
+        GraphicalUpdates = null;
+        PhysicsUpdates = null;
+        PauseScripts = null;
+        UnPauseScripts = null;
+}
 
 }
