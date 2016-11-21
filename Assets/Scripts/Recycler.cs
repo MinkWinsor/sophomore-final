@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class Recycler : MonoBehaviour {
 
@@ -39,7 +40,7 @@ public class Recycler : MonoBehaviour {
     protected Vector3 RandomPosition()
     {
         Vector3 tempTransform;
-        tempTransform = SpawnPositions[Random.Range(0, SpawnPositions.Count)].transform.position;
+        tempTransform = SpawnPositions[UnityEngine.Random.Range(0, SpawnPositions.Count)].transform.position;
         return tempTransform;
     }
     

@@ -47,11 +47,13 @@ public class OnlyUpdateScript : MonoBehaviour {
             {
                 PauseScripts();
                 isPaused = true;
+                Time.timeScale = 0;
             }
             else
             {
                 UnPauseScripts();
                 isPaused = false;
+                Time.timeScale = 1;
             }
         }
 

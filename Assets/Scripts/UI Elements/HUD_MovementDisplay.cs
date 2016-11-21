@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System;
 
-public class HUD_MovementDisplay : MonoBehaviour {
+public class HUD_MovementDisplay : MonoBehaviour, IPausable {
 
     public Slider mySlider;
     public Image compass;
@@ -16,7 +16,8 @@ public class HUD_MovementDisplay : MonoBehaviour {
 	void Start () {
         OnlyUpdateScript.GraphicalUpdates += sliderUpdate;
         OnlyUpdateScript.GraphicalUpdates += compassUpdate;
-        
+        OnlyUpdateScript.PauseScripts += OnPause;
+        OnlyUpdateScript.UnPauseScripts += OnUnPause;
         //playerRefScript = playerRef.GetComponent<movePlayer>();
         playerCC = playerRef.GetComponent<CharacterController>();
     }
@@ -37,5 +38,17 @@ public class HUD_MovementDisplay : MonoBehaviour {
             mySlider.value = (Mathf.Abs(playerCC.velocity.z));
         }
 
+    }
+
+    public void OnPause()
+    {
+        OnlyUpdateScript.GraphicalUpdates -= sliderUpdate;
+        OnlyUpdateScript.GraphicalUpdates -= compassUpdate;
+    }
+
+    public void OnUnPause()
+    {
+        OnlyUpdateScript.GraphicalUpdates += sliderUpdate;
+        OnlyUpdateScript.GraphicalUpdates += compassUpdate;
     }
 }

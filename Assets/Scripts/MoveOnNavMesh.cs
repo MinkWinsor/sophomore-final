@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class MoveOnNavMesh : MonoBehaviour {
 
@@ -12,7 +13,6 @@ public class MoveOnNavMesh : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         agent.destination = target.position;
         OnlyUpdateScript.PhysicsUpdates += setNewTarget;
-
     }
 
     public void setNewTarget (Transform newTarget)
@@ -43,4 +43,5 @@ public class MoveOnNavMesh : MonoBehaviour {
     {
         OnlyUpdateScript.PhysicsUpdates -= setNewTarget;
     }
+    
 }
