@@ -25,7 +25,6 @@ public class Recycler : MonoBehaviour {
 
     public virtual void RecycleOneObject()
     {
-        RecyclableItems[listIndex].transform.position = RandomPosition();
         RecyclableItems[listIndex].gameObject.SetActive(true);
         if (listIndex < RecyclableItems.Count - 1)
         {

@@ -38,6 +38,7 @@ public class RecycleEnemies : Recycler
             {
                 RecyclableItems[listIndex].GetComponent<MoveOnNavMesh>().StartMoving();
             }
+            RecyclableItems[listIndex].transform.position = RandomPosition();
             base.RecycleOneObject();
         }
         
