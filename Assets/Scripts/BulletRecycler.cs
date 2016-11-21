@@ -7,6 +7,7 @@ public class BulletRecycler : Recycler {
 	
     protected override void Start()
     {
+        print("Check");
         RecyclableItems = new List<Recyclable>();
         Bullet.RecyclerAction += RecycleActionHandler;
     }
@@ -18,7 +19,7 @@ public class BulletRecycler : Recycler {
 
     public void FireBullet(Vector3 start, Vector3 end)
     {
-        //RecyclableItems
+        print(RecyclableItems.Count);
         RecycleOneObject();
     }
 }

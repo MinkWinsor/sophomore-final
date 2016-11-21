@@ -11,10 +11,14 @@ public class Bullet : Recyclable {
     public float damagePerBullet = 10;
 
 
-    protected void Start()
+    protected override void Start()
     {
         OnlyUpdateScript.PhysicsUpdates += moveBullet;
+        
+        base.Start();
     }
+
+
 
     private void moveBullet()
     {

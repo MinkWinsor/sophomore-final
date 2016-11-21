@@ -10,7 +10,12 @@ public class Recyclable : MonoBehaviour {
     protected virtual void Start () {
         if (RecyclerAction != null)
         {
+
             RecyclerAction(this);
+        }
+        else
+        {
+            print("RECYCLER NULL");
         }
     }
 	

@@ -5,6 +5,7 @@ public class UnitShooter : Unit, IFiring {
 
     public float FireRate = 1;
     public bool CanShoot = false;
+    public BulletRecycler myBulletRecycler;
 
 
     private MoveOnNavMesh meshAgentScript;
@@ -27,6 +28,7 @@ public class UnitShooter : Unit, IFiring {
         {
             yield return new WaitForSeconds(FireRate);
             print("UnitShooter Firing");
+            myBulletRecycler.FireBullet(this.transform.position, target);
         }
         
     }
