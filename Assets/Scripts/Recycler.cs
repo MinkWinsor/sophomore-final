@@ -11,10 +11,9 @@ public abstract class Recycler : MonoBehaviour {
     protected int listIndex = 0;
 
     // Use this for initialization
-    protected virtual void Start () {
-        RecyclableItems = new List<Recyclable>();
+    /*protected virtual void Start () {
         Recyclable.RecyclerAction += RecycleActionHandler;
-    }
+    }*/
 
     protected virtual void RecycleActionHandler(Recyclable _r)
     {

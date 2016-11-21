@@ -5,19 +5,20 @@ using System.Collections.Generic;
 
 public class RecycleEnemies : Recycler
 {
-    public new List<EnemyRecyclable> RecyclableItems;
+    //public new List<Recyclable> RecyclableItems;
     public float TimeToWait = 1;
     public bool CanSpawn = true;
 
-    protected override void Start()
+    void Start()
     {
-        RecyclableItems = new List<EnemyRecyclable>();
+        RecyclableItems = new List<Recyclable>();
         EnemyRecyclable.EnemyRecyclerAction += RecycleActionHandler;
         StartCoroutine(SpawnOnTimer());
     }
 
     protected override void RecycleActionHandler(Recyclable _r)
     {
+        print("Called");
         if (_r.GetComponent<MoveOnNavMesh>() != null)
         {
             _r.GetComponent<MoveOnNavMesh>().StopMoving();
