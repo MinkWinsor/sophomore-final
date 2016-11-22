@@ -27,7 +27,6 @@ public class UnitShooter : Unit, IFiring {
         while (CanShoot)
         { 
             yield return new WaitForSeconds(FireRate);
-            print("UnitShooter Firing");
             myBulletRecycler.FireBullet(this.transform.position, target);
         }
         

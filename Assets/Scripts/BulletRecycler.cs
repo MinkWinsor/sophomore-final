@@ -12,9 +12,10 @@ public class BulletRecycler : Recycler {
         Bullet.BulletRecyclerAction += RecycleActionHandler;
     }
 
-    public override void RecycleOneObject()
+    public override int RecycleOneObject()
     {
-        base.RecycleOneObject();
+        int previousIndex = base.RecycleOneObject();
+        return previousIndex;
     }
 
     public void FireBullet(Vector3 start, Vector3 end)

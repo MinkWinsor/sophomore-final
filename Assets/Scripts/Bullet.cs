@@ -47,6 +47,6 @@ public class Bullet : Recyclable {
             other.GetComponent<UnitPlayer>().TakeDamage(damagePerBullet);
         }
 
-        this.enabled = false;
+        gameObject.SetActive(false);
     }
 }

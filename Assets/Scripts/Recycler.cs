@@ -22,16 +22,19 @@ public abstract class Recycler : MonoBehaviour {
         _r.gameObject.SetActive(false);
     }
 
-    public virtual void RecycleOneObject()
+    public virtual int RecycleOneObject()
     {
         RecyclableItems[listIndex].gameObject.SetActive(true);
         if (listIndex < RecyclableItems.Count - 1)
         {
             listIndex++;
+            
+            return listIndex - 1;
         }
         else
         {
             listIndex = 0;
+            return RecyclableItems.Count - 1;
         }
     }
 

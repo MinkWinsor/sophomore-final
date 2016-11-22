@@ -18,7 +18,6 @@ public class RecycleEnemies : Recycler
 
     protected override void RecycleActionHandler(Recyclable _r)
     {
-        print("Called");
         if (_r.GetComponent<MoveOnNavMesh>() != null)
         {
             _r.GetComponent<MoveOnNavMesh>().StopMoving();
@@ -27,30 +26,23 @@ public class RecycleEnemies : Recycler
         
     }
 
-    public override void RecycleOneObject()
+    public override int RecycleOneObject()
     {
-        for(int tryCount = 0; tryCount < 6; tryCount++) //Ensures that if all objects are in use, recycler won't pour in extra efforts to recycle something.
+        int lastIndex = 0;
+        for (int tryCount = 0; tryCount < 6; tryCount++) //Ensures that if all objects are in use, recycler won't pour in extra efforts to recycle something.
         {
+            
             if (!RecyclableItems[listIndex].gameObject.activeSelf)
             {
                 RecyclableItems[listIndex].transform.position = RandomPosition();
-                base.RecycleOneObject();
-                if (listIndex > 0)
-                {
-                    startNav(listIndex - 1);
-                }
-                else
-                {
-                    startNav(RecyclableItems.Count - 1);
-                }
+                lastIndex = base.RecycleOneObject();
+                startNav(lastIndex);
+                
                 tryCount = 6;
             }
-            else
-            {
-                listIndex++;
-            }
+
         }
-        
+        return lastIndex;
         
     }
     
