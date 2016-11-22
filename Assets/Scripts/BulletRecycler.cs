@@ -20,7 +20,7 @@ public class BulletRecycler : Recycler {
 
     public void FireBullet(Vector3 start, Vector3 end)
     {
-        print(RecyclableItems.Count);
+        RecyclableItems[listIndex].transform.position = start;
         RecycleOneObject();
     }
 }

@@ -77,6 +77,7 @@ public class movePlayer : MonoBehaviour, IMoving, IPausable {
             transform.Rotate(0, -rotateSpeed * Time.deltaTime, 0);
             rotatedRecently = true;
         }
+        
     }
 
     //FUNCTION:

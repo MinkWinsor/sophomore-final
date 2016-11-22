@@ -6,7 +6,7 @@ public class Bullet : Recyclable {
 
     public static Action<Bullet> BulletRecyclerAction;
 
-    public Transform targetPos;
+    private Vector3 targetPos;
     public float speed = 100;
     public float damagePerBullet = 10;
 
@@ -26,12 +26,15 @@ public class Bullet : Recyclable {
         }
     }
 
-
+    public void setTarget(Vector3 newTarget)
+    {
+        targetPos = newTarget;
+    }
 
     private void moveBullet()
     {
         float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, targetPos.position, step);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
     }
     
     void OnTriggerEnter(Collider other)
