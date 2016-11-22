@@ -28,12 +28,14 @@ public class MoveOnNavMesh : MonoBehaviour {
 
     public void StopMoving()
     {
-        agent.Stop();
+        if(gameObject.activeSelf)
+            agent.Stop();
         OnlyUpdateScript.PhysicsUpdates -= setNewTarget;
     }
     public void StartMoving()
     {
-        agent.Resume();
+        if (gameObject.activeSelf)
+            agent.Resume();
         OnlyUpdateScript.PhysicsUpdates += setNewTarget;
     }
 

@@ -9,11 +9,6 @@ public class SceneControl : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    void Start()
-    {
-        print("Loaded scene: " + SceneManager.GetActiveScene().buildIndex);
-    }
-
     public static void LoadGameLevel(int _levelToLoad)
     {
         SceneManager.LoadScene(_levelToLoad);

@@ -112,7 +112,6 @@ public class movePlayer : MonoBehaviour, IMoving, IPausable {
     {
         for(int i = 0; i < 10; i++)
         {
-            print("crashing");
             if (force.x > 0)
                 force.x -= force.x * dragFactor;
             if (force.z > 0)
