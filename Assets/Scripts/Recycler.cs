@@ -8,7 +8,7 @@ public abstract class Recycler : MonoBehaviour {
     public List<Transform> SpawnPositions;
     public List<Recyclable> RecyclableItems;
 
-    protected int listIndex = 0;
+    public int listIndex = 0;
 
     // Use this for initialization
     /*protected virtual void Start () {

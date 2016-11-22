@@ -5,6 +5,7 @@ public class ProximityColission : MonoBehaviour {
 
     private MoveOnNavMesh meshAgentScript;
     private UnitShooter shooterScript;
+    private IEnumerator shootCoroutine;
 
     // Use this for initialization
     void Start () {
@@ -14,13 +15,14 @@ public class ProximityColission : MonoBehaviour {
 	
 	void OnTriggerEnter (Collider other) {
         meshAgentScript.StopMoving();
-        shooterScript.CanShoot = true;
-        StartCoroutine(shooterScript.Fire(other.transform.position));
-	}
+        
+        shootCoroutine = shooterScript.Fire(other.transform.position);
+        StartCoroutine(shootCoroutine);
+    }
 
     void OnTriggerExit()
     {
         meshAgentScript.StartMoving();
-        shooterScript.CanShoot = false;
+        StopCoroutine(shootCoroutine);
     }
 }

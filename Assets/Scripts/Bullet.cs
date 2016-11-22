@@ -6,14 +6,14 @@ public class Bullet : Recyclable {
 
     public static Action<Bullet> BulletRecyclerAction;
 
-    private Vector3 targetPos;
+    //private Vector3 targetPos;
     public float speed = 100;
     public float damagePerBullet = 10;
 
 
     protected override void Start()
     {
-        OnlyUpdateScript.PhysicsUpdates += moveBullet;
+        OnlyUpdateScript.GraphicalUpdates += moveBullet;
 
         if (BulletRecyclerAction != null)
         {
@@ -26,23 +26,27 @@ public class Bullet : Recyclable {
         }
     }
 
-    public void setTarget(Vector3 newTarget)
+    /*public void SetTarget(Vector3 newTarget)
     {
-        targetPos = newTarget;
-    }
+        float step = speed * Time.deltaTime;
+        print(targetPos);
+        targetPos = Vector3.MoveTowards(transform.position, newTarget, step);
+        print(targetPos);
+    }*/
 
     private void moveBullet()
     {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
+        
+        transform.position += transform.forward * Time.deltaTime;
     }
     
     void OnTriggerEnter(Collider other)
     {
-        print("COLLISION");
         if (other.GetComponent<UnitPlayer>())
         {
             other.GetComponent<UnitPlayer>().TakeDamage(damagePerBullet);
         }
+
+        this.enabled = false;
     }
 }

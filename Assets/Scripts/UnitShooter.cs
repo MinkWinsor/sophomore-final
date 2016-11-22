@@ -4,7 +4,7 @@ using System.Collections;
 public class UnitShooter : Unit, IFiring {
 
     public float FireRate = 1;
-    public bool CanShoot = false;
+    public bool CanShoot = true;
     public BulletRecycler myBulletRecycler;
 
 
@@ -25,7 +25,7 @@ public class UnitShooter : Unit, IFiring {
     public IEnumerator Fire(Vector3 target)
     {
         while (CanShoot)
-        {
+        { 
             yield return new WaitForSeconds(FireRate);
             print("UnitShooter Firing");
             myBulletRecycler.FireBullet(this.transform.position, target);

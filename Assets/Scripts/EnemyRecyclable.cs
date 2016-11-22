@@ -13,7 +13,6 @@ public class EnemyRecyclable : Recyclable {
 
     protected override void Start()
     {
-        print("Recycling");
         if (EnemyRecyclerAction != null)
         {
 

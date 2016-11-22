@@ -8,7 +8,6 @@ public class BulletRecycler : Recycler {
 
     void Start()
     {
-        print("Check");
         RecyclableItems = new List<Recyclable>();
         Bullet.BulletRecyclerAction += RecycleActionHandler;
     }
@@ -21,6 +20,7 @@ public class BulletRecycler : Recycler {
     public void FireBullet(Vector3 start, Vector3 end)
     {
         RecyclableItems[listIndex].transform.position = start;
+        RecyclableItems[listIndex].transform.LookAt(end);
         RecycleOneObject();
     }
 }
