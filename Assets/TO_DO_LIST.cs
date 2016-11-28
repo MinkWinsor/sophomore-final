@@ -75,6 +75,9 @@ https://unity3d.com/learn/tutorials/topics/scripting
   -Possibly remove IPausable implementation.
   --Check IMoving
   -check if LevelLoader scripts being private is going to be an issue.
+  -Fix jumpy unitshooter
+  --ADD POWERUPS
+  -Still are some dependencies on SceneControl script.
   
   CHECK FOR STUFF 11/28/2016:
   only 3 coroutines~~

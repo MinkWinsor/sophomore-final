@@ -25,7 +25,6 @@ public abstract class Recycler : MonoBehaviour {
     //INPUTS:
     protected virtual void RecycleActionHandler(Recyclable _r)
     {
-        
          RecyclableItems.Add(_r);
         _r.gameObject.SetActive(false);
     }

@@ -1,15 +1,13 @@
 ﻿/*
  
- 
  */
 
+ //Required Libraries
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 using System;
 
 public class UnitPlayer : Unit {
-
     
 
     //FUNCTION:
@@ -35,8 +33,6 @@ public class UnitPlayer : Unit {
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     public override void Kill()
     {
         SceneControl.ReloadCurrentScene();

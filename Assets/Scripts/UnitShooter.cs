@@ -10,18 +10,25 @@ public class UnitShooter : Unit, IFiring {
 
     private MoveOnNavMesh meshAgentScript;
 
+    //FUNCTION:
+    //CALLED BY: Unity game engine
     void Start()
     {
         meshAgentScript = GetComponentInParent<MoveOnNavMesh>();
-
     }
 
+    //FUNCTION:
+    //CALLED BY:
     public override void Kill()
     {
         meshAgentScript.StopMoving();
         gameObject.SetActive(false);
     }
-    
+
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     public IEnumerator Fire(Vector3 target)
     {
         while (CanShoot)
@@ -32,6 +39,10 @@ public class UnitShooter : Unit, IFiring {
         
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     public float HitTarget(float damageDone)
     {
         return 0;

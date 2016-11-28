@@ -1,26 +1,31 @@
 ﻿/*
  
- 
  */
 
+ //Required Libraries
 using UnityEngine;
 using System.Collections;
 
 public class CrashCollider : MonoBehaviour {
-
+    
+    //-Public Variables-//
     public float ColissionDamage = 100;
     
+    //-Private Variables-//
     private movePlayer moveScript;
     private UnitPlayer playerScript;
 
-	// Use this for initialization
-	void Start () {
+    //FUNCTION:
+    //CALLED BY:
+    void Start () {
         //Scripts are found in parent player object.
         moveScript = GetComponentInParent<movePlayer>();
         playerScript = GetComponentInParent<UnitPlayer>();
     }
-	
-	void OnTriggerEnter () {
+
+    //FUNCTION:
+    //CALLED BY:
+    void OnTriggerEnter () {
         //Player takes damage equal to ColissionDamage variable.
         playerScript.TakeDamage(ColissionDamage);
             

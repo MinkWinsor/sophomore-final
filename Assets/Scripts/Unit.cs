@@ -19,8 +19,8 @@ public abstract class Unit : MonoBehaviour {
 
 
     
-    //FUNCTION: Start function, initializes variables.
-    //CALLED BY: Unity game engine.
+    //FUNCTION: Start function, initializes variables
+    //CALLED BY: Unity game engine
     void Start()
     {
         //As units are expected to start at full health, maxHealth is initialized to health.

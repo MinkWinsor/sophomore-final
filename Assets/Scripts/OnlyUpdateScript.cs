@@ -3,6 +3,7 @@
  
  */
 
+ //Required Libraries
 using UnityEngine;
 using System.Collections;
 using System;
@@ -10,11 +11,12 @@ using System;
 public class OnlyUpdateScript : MonoBehaviour {
 
     //-Public Variables-//
-    public static Action<KeyCode> UserMovementInput;
-    public static Action GraphicalUpdates;
-    public static Action PhysicsUpdates;
-    public static Action PauseScripts;
-    public static Action UnPauseScripts;
+    //Actions are used by many scripts to allow updating on update, when user presses keys, etc.
+    public static Action<KeyCode> UserMovementInput; //For moving the player.
+    public static Action GraphicalUpdates; //For updating graphics that need updating every frame.
+    public static Action PhysicsUpdates; //For objects that need to move on each physics update.
+    public static Action PauseScripts; //For any code that should run when game is paused.
+    public static Action UnPauseScripts; //Same as above, for code that runs when game is unpaused.
     public bool isPaused = false;
 
 
