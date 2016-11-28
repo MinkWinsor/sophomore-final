@@ -73,8 +73,10 @@ https://unity3d.com/learn/tutorials/topics/scripting
   Things to do:
 
   -Possibly remove IPausable implementation.
+  --Check IMoving
   
-  
+  CHECK FOR STUFF 11/28/2016:
+  only 3 coroutines~~
   
   
   

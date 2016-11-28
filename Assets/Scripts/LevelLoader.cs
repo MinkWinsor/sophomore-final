@@ -1,26 +1,38 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿/*
+ This script is used exclusively for loading scenes. 
+ Static functions are bound to levels in the game, and non-static functions allow the calling of them by integers or strings.
+ */
+
+ //Required libraries.
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour {
 
-    public static void LoadMenu()
+    //FUNCTION:
+    //CALLED BY:
+    private static void LoadMenu()
     {
         SceneManager.LoadScene(StaticVariables.MenuSceneIndex);
     }
 
-
-    public static void LoadLevel()
+    //FUNCTION:
+    //CALLED BY:
+    private static void LoadLevel()
     {
         SceneManager.LoadScene(StaticVariables.LevelSceneIndex);
     }
 
-    public static void QuitGame()
+    //FUNCTION:
+    //CALLED BY:
+    private static void QuitGame()
     {
         Application.Quit();
     }
-    
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
     public void ButtonLoad(int _scene)
     {
         switch (_scene)
@@ -38,6 +50,9 @@ public class LevelLoader : MonoBehaviour {
         }
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
     public void ButtonLoad(string _scene)
     {
         _scene.ToUpper();

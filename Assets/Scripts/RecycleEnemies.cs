@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿/*
+ 
+ */
+
+//Required Libraries
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,6 +14,10 @@ public class RecycleEnemies : Recycler
     public float TimeToWait = 1;
     public bool CanSpawn = true;
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     void Start()
     {
         RecyclableItems = new List<Recyclable>();
@@ -16,6 +25,10 @@ public class RecycleEnemies : Recycler
         StartCoroutine(SpawnOnTimer());
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     protected override void RecycleActionHandler(Recyclable _r)
     {
         if (_r.GetComponent<MoveOnNavMesh>() != null)
@@ -26,6 +39,10 @@ public class RecycleEnemies : Recycler
         
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     public override int RecycleOneObject()
     {
         int lastIndex = 0;
@@ -45,7 +62,11 @@ public class RecycleEnemies : Recycler
         return lastIndex;
         
     }
-    
+
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     private void startNav(int _index)
     {
         if (RecyclableItems[_index].GetComponent<MoveOnNavMesh>() != null)
@@ -54,6 +75,10 @@ public class RecycleEnemies : Recycler
         }
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     IEnumerator SpawnOnTimer()
     {
         while (CanSpawn)

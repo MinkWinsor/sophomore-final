@@ -10,7 +10,10 @@ public class EnemyRecyclable : Recyclable {
     public float speed = 100;
     public float damagePerBullet = 10;
 
-
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     protected override void Start()
     {
         if (EnemyRecyclerAction != null)

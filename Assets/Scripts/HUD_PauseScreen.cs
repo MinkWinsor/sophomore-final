@@ -7,8 +7,11 @@ public class HUD_PauseScreen : MonoBehaviour, IPausable {
     public Transform PauseScreenParentNode;
     public List<Transform> PauseScreenObjects;
 
-	// Use this for initialization
-	void Start () {
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
+    void Start () {
         PauseScreenObjects = new List<Transform>();
         foreach (Transform child in PauseScreenParentNode)
         {
@@ -21,6 +24,10 @@ public class HUD_PauseScreen : MonoBehaviour, IPausable {
         OnlyUpdateScript.UnPauseScripts += OnUnPause;
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     public void OnPause()
     {
         foreach (Transform pauseElement in PauseScreenObjects)
@@ -31,6 +38,10 @@ public class HUD_PauseScreen : MonoBehaviour, IPausable {
 
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     public void OnUnPause()
     {
         foreach (Transform pauseElement in PauseScreenObjects)

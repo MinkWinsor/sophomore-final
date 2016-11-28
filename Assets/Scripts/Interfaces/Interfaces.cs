@@ -18,6 +18,3 @@ public interface IMoving
 {
     void moveHandler();
 }
-
-
-

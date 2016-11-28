@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿/*
+ 
+ */
+
+//Required Libraries
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -15,6 +20,10 @@ public abstract class Recycler : MonoBehaviour {
         Recyclable.RecyclerAction += RecycleActionHandler;
     }*/
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     protected virtual void RecycleActionHandler(Recyclable _r)
     {
         
@@ -22,6 +31,10 @@ public abstract class Recycler : MonoBehaviour {
         _r.gameObject.SetActive(false);
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     public virtual int RecycleOneObject()
     {
         RecyclableItems[listIndex].gameObject.SetActive(true);
@@ -38,6 +51,10 @@ public abstract class Recycler : MonoBehaviour {
         }
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     protected Vector3 RandomPosition()
     {
         Vector3 tempTransform;

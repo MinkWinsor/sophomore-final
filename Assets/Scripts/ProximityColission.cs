@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿/*
+ 
+ */
+
+//Required Libraries
+using UnityEngine;
 using System.Collections;
 
 public class ProximityColission : MonoBehaviour {
@@ -12,14 +17,22 @@ public class ProximityColission : MonoBehaviour {
         meshAgentScript = GetComponentInParent<MoveOnNavMesh>();
         shooterScript = GetComponentInParent<UnitShooter>();
     }
-	
-	void OnTriggerEnter (Collider other) {
+
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
+    void OnTriggerEnter (Collider other) {
         meshAgentScript.StopMoving();
         
         shootCoroutine = shooterScript.Fire(other.transform.position);
         StartCoroutine(shootCoroutine);
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     void OnTriggerExit()
     {
         meshAgentScript.StartMoving();

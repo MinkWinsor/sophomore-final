@@ -3,6 +3,7 @@
  Used on any unit, players and NPCs alike.
  */
 
+ //Required Libraries
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
@@ -50,7 +51,7 @@ public abstract class Unit : MonoBehaviour {
     }
     
 
-    //FUNCTION: Destroys game object.
+    //FUNCTION: Destroys (Deactivates) game object. Doesn't actually destroy it, because most units can be recycled and such.
     //CALLED BY: TakeDamage, or other functions that would kill the unit. This function should only be called by it's own class.
     public virtual void Kill()
     {

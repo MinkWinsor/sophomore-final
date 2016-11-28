@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿/*
+ 
+ */
+
+//Required Libraries
+using UnityEngine;
 using System.Collections;
 using System;
 
@@ -10,7 +15,10 @@ public class Bullet : Recyclable {
     public float speed = 100;
     public float damagePerBullet = 10;
 
-
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     protected override void Start()
     {
         OnlyUpdateScript.GraphicalUpdates += moveBullet;
@@ -34,12 +42,20 @@ public class Bullet : Recyclable {
         print(targetPos);
     }*/
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     private void moveBullet()
     {
         
         transform.position += transform.forward * Time.deltaTime;
     }
-    
+
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<UnitPlayer>())

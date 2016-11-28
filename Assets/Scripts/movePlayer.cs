@@ -1,8 +1,8 @@
 ﻿/*
  
- 
  */
 
+//Required Libraries
 using UnityEngine;
 using System.Collections;
 using System;
@@ -126,7 +126,10 @@ public class movePlayer : MonoBehaviour, IMoving, IPausable {
     }
 
 
-
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     public void OnPause()
     {
         OnlyUpdateScript.UserMovementInput -= rotateHandler;
@@ -134,6 +137,10 @@ public class movePlayer : MonoBehaviour, IMoving, IPausable {
         OnlyUpdateScript.PhysicsUpdates -= moveHandler;
     }
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     public void OnUnPause()
     {
         OnlyUpdateScript.UserMovementInput += rotateHandler;
