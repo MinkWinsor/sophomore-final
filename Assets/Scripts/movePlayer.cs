@@ -9,14 +9,14 @@ using System;
 
 public class movePlayer : MonoBehaviour, IMoving, IPausable {
 
+    //-Public Variables-//
     public float speed = 5;
     public float rotateSpeed = 20;
     public float dragFactor = 0.5f;
     public float gravity = 5;
 
-
+    //-Private Variables-//
     private const float MAX_SPEED_FACTOR = 2;
-
     private float maxSpeed;
     private bool rotatedRecently = false;
     private Vector3 force;
@@ -24,8 +24,6 @@ public class movePlayer : MonoBehaviour, IMoving, IPausable {
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     void Start () {
         force.y = -gravity;
         myCC = GetComponent<CharacterController>();
@@ -40,7 +38,6 @@ public class movePlayer : MonoBehaviour, IMoving, IPausable {
     //FUNCTION:
     //CALLED BY:
     //INPUTS:
-    //OUTPUTS:
     void addForceHandler(KeyCode code)
     {
 
@@ -64,7 +61,6 @@ public class movePlayer : MonoBehaviour, IMoving, IPausable {
     //FUNCTION:
     //CALLED BY:
     //INPUTS:
-    //OUTPUTS:
     public void rotateHandler(KeyCode code)
     {
         if (code == KeyCode.RightArrow)
@@ -82,8 +78,6 @@ public class movePlayer : MonoBehaviour, IMoving, IPausable {
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     public void moveHandler()
     {
         
@@ -106,7 +100,6 @@ public class movePlayer : MonoBehaviour, IMoving, IPausable {
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
     //OUTPUTS:
     public IEnumerator Crash()
     {
@@ -128,8 +121,6 @@ public class movePlayer : MonoBehaviour, IMoving, IPausable {
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     public void OnPause()
     {
         OnlyUpdateScript.UserMovementInput -= rotateHandler;
@@ -139,8 +130,6 @@ public class movePlayer : MonoBehaviour, IMoving, IPausable {
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     public void OnUnPause()
     {
         OnlyUpdateScript.UserMovementInput += rotateHandler;

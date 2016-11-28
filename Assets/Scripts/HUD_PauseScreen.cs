@@ -4,13 +4,12 @@ using System.Collections.Generic;
 
 public class HUD_PauseScreen : MonoBehaviour, IPausable {
 
+    //-Public Variables-//
     public Transform PauseScreenParentNode;
     public List<Transform> PauseScreenObjects;
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     void Start () {
         PauseScreenObjects = new List<Transform>();
         foreach (Transform child in PauseScreenParentNode)
@@ -26,8 +25,6 @@ public class HUD_PauseScreen : MonoBehaviour, IPausable {
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     public void OnPause()
     {
         foreach (Transform pauseElement in PauseScreenObjects)
@@ -40,8 +37,6 @@ public class HUD_PauseScreen : MonoBehaviour, IPausable {
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     public void OnUnPause()
     {
         foreach (Transform pauseElement in PauseScreenObjects)

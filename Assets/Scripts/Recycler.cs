@@ -10,9 +10,9 @@ using System;
 
 public abstract class Recycler : MonoBehaviour {
 
+    //-Public Variables-//
     public List<Transform> SpawnPositions;
     public List<Recyclable> RecyclableItems;
-
     public int listIndex = 0;
 
     // Use this for initialization
@@ -23,7 +23,6 @@ public abstract class Recycler : MonoBehaviour {
     //FUNCTION:
     //CALLED BY:
     //INPUTS:
-    //OUTPUTS:
     protected virtual void RecycleActionHandler(Recyclable _r)
     {
         
@@ -33,7 +32,6 @@ public abstract class Recycler : MonoBehaviour {
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
     //OUTPUTS:
     public virtual int RecycleOneObject()
     {
@@ -53,7 +51,6 @@ public abstract class Recycler : MonoBehaviour {
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
     //OUTPUTS:
     protected Vector3 RandomPosition()
     {

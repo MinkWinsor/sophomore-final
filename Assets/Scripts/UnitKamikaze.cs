@@ -12,8 +12,6 @@ public class UnitKamikaze : Unit {
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     void Start()
     {
         meshAgentScript = GetComponentInParent<MoveOnNavMesh>();
@@ -21,8 +19,6 @@ public class UnitKamikaze : Unit {
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     public override void Kill()
     {
         meshAgentScript.StopMoving();

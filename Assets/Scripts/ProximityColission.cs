@@ -8,6 +8,7 @@ using System.Collections;
 
 public class ProximityColission : MonoBehaviour {
 
+    //-Private Variables-//
     private MoveOnNavMesh meshAgentScript;
     private UnitShooter shooterScript;
     private IEnumerator shootCoroutine;

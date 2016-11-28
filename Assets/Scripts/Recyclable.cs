@@ -9,12 +9,11 @@ using System;
 
 public abstract class Recyclable : MonoBehaviour {
 
+    //-Public Variables-//
     public static Action<Recyclable> RecyclerAction;
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     protected virtual void Start () {
         if (RecyclerAction != null)
         {

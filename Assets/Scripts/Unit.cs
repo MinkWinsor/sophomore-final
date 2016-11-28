@@ -10,6 +10,7 @@ using UnityEngine.UI;
 
 public abstract class Unit : MonoBehaviour {
 
+    //-Public Variables-//
     //All Units have health, and max health.
     //Max health is for limiting overhealing, and displaying health bars.
     public float health = 1000;

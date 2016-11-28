@@ -5,8 +5,11 @@ using System;
 public abstract class PowerUp : Recyclable {
 
     public static Action<PowerUp> PowerUpRecyclerAction;
-    
 
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     protected override void Start()
     {
 

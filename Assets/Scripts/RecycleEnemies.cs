@@ -10,14 +10,13 @@ using System.Collections.Generic;
 
 public class RecycleEnemies : Recycler
 {
+    //-Public Variables-//
     //public new List<Recyclable> RecyclableItems;
     public float TimeToWait = 1;
     public bool CanSpawn = true;
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     void Start()
     {
         RecyclableItems = new List<Recyclable>();
@@ -28,7 +27,6 @@ public class RecycleEnemies : Recycler
     //FUNCTION:
     //CALLED BY:
     //INPUTS:
-    //OUTPUTS:
     protected override void RecycleActionHandler(Recyclable _r)
     {
         if (_r.GetComponent<MoveOnNavMesh>() != null)
@@ -41,7 +39,6 @@ public class RecycleEnemies : Recycler
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
     //OUTPUTS:
     public override int RecycleOneObject()
     {
@@ -66,7 +63,6 @@ public class RecycleEnemies : Recycler
     //FUNCTION:
     //CALLED BY:
     //INPUTS:
-    //OUTPUTS:
     private void startNav(int _index)
     {
         if (RecyclableItems[_index].GetComponent<MoveOnNavMesh>() != null)
@@ -77,7 +73,6 @@ public class RecycleEnemies : Recycler
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
     //OUTPUTS:
     IEnumerator SpawnOnTimer()
     {

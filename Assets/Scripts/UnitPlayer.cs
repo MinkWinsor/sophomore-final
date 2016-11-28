@@ -33,7 +33,10 @@ public class UnitPlayer : Unit {
         return (base.AddHealth(_addedHealth));
     }
 
-
+    //FUNCTION:
+    //CALLED BY:
+    //INPUTS:
+    //OUTPUTS:
     public override void Kill()
     {
         SceneControl.ReloadCurrentScene();
