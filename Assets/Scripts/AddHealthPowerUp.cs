@@ -16,6 +16,7 @@ public class AddHealthPowerUp : PowerUp
     
     protected override void OnTriggerEnter(Collider other)
     {
+        print("COLLISSION");
         UnitPlayer unitToDamage = other.GetComponent<UnitPlayer>();
         unitToDamage.AddHealth(HealthToAdd);
         gameObject.SetActive(false);

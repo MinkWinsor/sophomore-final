@@ -28,7 +28,10 @@ public class UnitPlayer : Unit, IHealth {
     //OUTPUTS:
     public override float AddHealth(float _addedHealth)
     {
-        return (base.AddHealth(_addedHealth));
+        base.AddHealth(_addedHealth);
+        healthBar.transform.localScale = new Vector3((health / healthMax), 1, 1);
+
+        return (health);
     }
 
     //FUNCTION:
