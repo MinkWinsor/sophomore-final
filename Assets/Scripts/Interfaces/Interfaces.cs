@@ -18,3 +18,9 @@ public interface IMoving
 {
     void moveHandler();
 }
+
+public interface IHealth
+{
+    float TakeDamage(float _damage);
+    float AddHealth(float _addedHealth);
+}

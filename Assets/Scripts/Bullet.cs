@@ -21,7 +21,7 @@ public class Bullet : Recyclable {
     //OUTPUTS:
     protected override void Start()
     {
-        OnlyUpdateScript.GraphicalUpdates += moveBullet;
+        UpdateScript.GraphicalUpdates += moveBullet;
 
         if (BulletRecyclerAction != null)
         {

@@ -28,8 +28,8 @@ public class HUD_PauseScreen : MonoBehaviour, IPausable {
         OnUnPause();
 
         //Subscribe to actions for calling pause
-        OnlyUpdateScript.PauseScripts += OnPause;
-        OnlyUpdateScript.UnPauseScripts += OnUnPause;
+        UpdateScript.PauseScripts += OnPause;
+        UpdateScript.UnPauseScripts += OnUnPause;
     }
 
     //FUNCTION: Shows the pause screen.

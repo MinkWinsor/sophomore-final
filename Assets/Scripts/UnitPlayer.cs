@@ -1,5 +1,5 @@
 ﻿/*
- 
+ UnitPlayer script, allows the player to take damage and add health.
  */
 
  //Required Libraries
@@ -7,10 +7,10 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-public class UnitPlayer : Unit {
+public class UnitPlayer : Unit, IHealth {
     
 
-    //FUNCTION:
+    //FUNCTION: Implented from IHealth, reduces health amount of the player. Updates health bar.
     //CALLED BY:
     //INPUTS:
     //OUTPUTS:

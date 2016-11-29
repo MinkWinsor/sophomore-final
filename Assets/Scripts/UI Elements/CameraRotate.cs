@@ -11,9 +11,9 @@ public class CameraRotate : MonoBehaviour, IPausable {
 
     // Use this for initialization
     void Start () {
-        OnlyUpdateScript.GraphicalUpdates += positionCamera;
-        OnlyUpdateScript.PauseScripts += OnPause;
-        OnlyUpdateScript.UnPauseScripts += OnUnPause;
+        UpdateScript.GraphicalUpdates += positionCamera;
+        UpdateScript.PauseScripts += OnPause;
+        UpdateScript.UnPauseScripts += OnUnPause;
     }
 	
 	// Update is called once per frame
@@ -25,11 +25,11 @@ public class CameraRotate : MonoBehaviour, IPausable {
 
     public void OnPause()
     {
-        OnlyUpdateScript.GraphicalUpdates -= positionCamera;
+        UpdateScript.GraphicalUpdates -= positionCamera;
     }
 
     public void OnUnPause()
     {
-        OnlyUpdateScript.GraphicalUpdates += positionCamera;
+        UpdateScript.GraphicalUpdates += positionCamera;
     }
 }

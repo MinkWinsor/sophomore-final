@@ -1,5 +1,6 @@
 ﻿/*
- 
+ This script is the only script that uses Update and FixedUpdate.
+ All other scripts that need to update on a per-frame basis use actions in this script.
  
  */
 
@@ -8,7 +9,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-public class OnlyUpdateScript : MonoBehaviour {
+public class UpdateScript : MonoBehaviour {
 
     //-Public Variables-//
     //Actions are used by many scripts to allow updating on update, when user presses keys, etc.
@@ -21,15 +22,16 @@ public class OnlyUpdateScript : MonoBehaviour {
 
 
 
-    //FUNCTION:
+    //FUNCTION: Update function, listens for input, updates necessary graphics.
     //CALLED BY: The unity game engine with every frame update.
     void Update () {
 
-        if (GraphicalUpdates != null)
+        if (GraphicalUpdates != null) //All graphics updated.
             GraphicalUpdates();
        
-
-        if (Input.GetKey(KeyCode.LeftArrow) && UserMovementInput != null)
+        //User input checked on the necessary keys, appropriate actions called and information passed.
+        //Left and right turns.
+        if (Input.GetKey(KeyCode.LeftArrow) && UserMovementInput != null) 
         {
             UserMovementInput(KeyCode.LeftArrow);
         }
@@ -37,11 +39,14 @@ public class OnlyUpdateScript : MonoBehaviour {
         {
             UserMovementInput(KeyCode.RightArrow);
         }
+
+        //Forward movement.
         if (Input.GetKey(KeyCode.UpArrow) && UserMovementInput != null)
         {
             UserMovementInput(KeyCode.UpArrow);
         }
 
+        //Pausing the game
         if (Input.GetKeyDown(KeyCode.Space) && PauseScripts != null)
         {
             
@@ -67,7 +72,7 @@ public class OnlyUpdateScript : MonoBehaviour {
         }
     }
 
-    //FUNCTION:
+    //FUNCTION: Updating of all physics scripts, like movement.
     //CALLED BY: Unit engine with every physics update.
     void FixedUpdate()
     {
@@ -75,6 +80,8 @@ public class OnlyUpdateScript : MonoBehaviour {
             PhysicsUpdates();
     }
 
+    //FUNCTION: All Actions are emptied when the scene resets/unloads, to avoid errors of calling scripts that no longer exist.
+    //CALLED BY: Unity game engine.
     void OnDestroy()
     {
         UserMovementInput = null;

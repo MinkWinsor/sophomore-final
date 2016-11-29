@@ -14,10 +14,10 @@ public class HUD_MovementDisplay : MonoBehaviour, IPausable {
 
 	// Use this for initialization
 	void Start () {
-        OnlyUpdateScript.GraphicalUpdates += sliderUpdate;
-        OnlyUpdateScript.GraphicalUpdates += compassUpdate;
-        OnlyUpdateScript.PauseScripts += OnPause;
-        OnlyUpdateScript.UnPauseScripts += OnUnPause;
+        UpdateScript.GraphicalUpdates += sliderUpdate;
+        UpdateScript.GraphicalUpdates += compassUpdate;
+        UpdateScript.PauseScripts += OnPause;
+        UpdateScript.UnPauseScripts += OnUnPause;
         //playerRefScript = playerRef.GetComponent<movePlayer>();
         playerCC = playerRef.GetComponent<CharacterController>();
     }
@@ -42,13 +42,13 @@ public class HUD_MovementDisplay : MonoBehaviour, IPausable {
 
     public void OnPause()
     {
-        OnlyUpdateScript.GraphicalUpdates -= sliderUpdate;
-        OnlyUpdateScript.GraphicalUpdates -= compassUpdate;
+        UpdateScript.GraphicalUpdates -= sliderUpdate;
+        UpdateScript.GraphicalUpdates -= compassUpdate;
     }
 
     public void OnUnPause()
     {
-        OnlyUpdateScript.GraphicalUpdates += sliderUpdate;
-        OnlyUpdateScript.GraphicalUpdates += compassUpdate;
+        UpdateScript.GraphicalUpdates += sliderUpdate;
+        UpdateScript.GraphicalUpdates += compassUpdate;
     }
 }
