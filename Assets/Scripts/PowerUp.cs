@@ -27,4 +27,6 @@ public abstract class PowerUp : Recyclable {
         }
     }
 
+    protected abstract void OnTriggerEnter(Collider other);
+
 }

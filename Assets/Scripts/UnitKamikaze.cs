@@ -1,5 +1,5 @@
 ﻿/*
- 
+ Function that controls the kamikaze unit.
  */
 
 //Required Libraries
