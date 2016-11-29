@@ -5,7 +5,7 @@ public class CeaseFireScript : MonoBehaviour {
 
     //-Private Variables-//
     private MoveOnNavMesh meshAgentScript;
-    private UnitShooter shooterScript;
+    //private UnitShooter shooterScript;
     public StartFireScript fireScript;
     //private IEnumerator shootCoroutine;
 
@@ -14,7 +14,7 @@ public class CeaseFireScript : MonoBehaviour {
     void Start()
     {
         meshAgentScript = GetComponentInParent<MoveOnNavMesh>();
-        shooterScript = GetComponentInParent<UnitShooter>();
+        //shooterScript = GetComponentInParent<UnitShooter>();
     }
 
     //FUNCTION: When player leaves collission, firing stops, and enemy starts moving at player again.

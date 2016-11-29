@@ -9,7 +9,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-public class MovePlayer : MonoBehaviour, IMoving, IPausable {
+public class MovePlayer : MonoBehaviour, IPausable {
 
     //-Public Variables-//
     public float speed = 5;
@@ -65,6 +65,7 @@ public class MovePlayer : MonoBehaviour, IMoving, IPausable {
     //INPUTS: KeyCode of key that user hit.
     public void rotateHandler(KeyCode code)
     {
+
         //Rotation in appropriate direction.
         if (code == KeyCode.RightArrow)
         {
@@ -83,6 +84,7 @@ public class MovePlayer : MonoBehaviour, IMoving, IPausable {
     //CALLED BY: UpdateScript.PhysicsUpdates every physics update.
     public void moveHandler()
     {
+        
         //Player moves!
         myCC.Move(force * Time.deltaTime * speed);
 
@@ -90,7 +92,7 @@ public class MovePlayer : MonoBehaviour, IMoving, IPausable {
         if (!Input.GetKey(KeyCode.UpArrow) || rotatedRecently)
         {
             if (force.x > 0)
-                force.x -= force.x * dragFactor * Time.deltaTime; //Questionable whether I need Time.deltatime here.
+                force.x -= force.x * dragFactor * Time.deltaTime;
             if (force.z > 0)
                 force.z -= force.z * dragFactor * Time.deltaTime;
             if (force.x < 0)
@@ -129,6 +131,7 @@ public class MovePlayer : MonoBehaviour, IMoving, IPausable {
     //CALLED BY: UpdateScript.PauseScripts when game is paused.
     public void OnPause()
     {
+        
         UpdateScript.UserMovementInput -= rotateHandler;
         UpdateScript.UserMovementInput -= addForceHandler;
         UpdateScript.PhysicsUpdates -= moveHandler;

@@ -9,7 +9,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-public class UpdateScript : MonoBehaviour {
+public class UpdateScript : MonoBehaviour, IPausable {
 
     //-Public Variables-//
     //Actions are used by many scripts to allow updating on update, when user presses keys, etc.
@@ -18,8 +18,15 @@ public class UpdateScript : MonoBehaviour {
     public static Action PhysicsUpdates; //For objects that need to move on each physics update.
     public static Action PauseScripts; //For any code that should run when game is paused.
     public static Action UnPauseScripts; //Same as above, for code that runs when game is unpaused.
-    public bool isPaused = false;
 
+    //-Private Variables-//
+    private bool isPaused = false;
+
+    void Start()
+    {
+        PauseScripts += OnPause;
+        UnPauseScripts += OnUnPause;
+    }
 
 
     //FUNCTION: Update function, listens for input, updates necessary graphics.
@@ -53,15 +60,12 @@ public class UpdateScript : MonoBehaviour {
             if (!isPaused)
             {
                 PauseScripts();
-                isPaused = true;
-                Time.timeScale = 0;
 
             }
             else
             {
                 UnPauseScripts();
-                isPaused = false;
-                Time.timeScale = 1;
+                
             }
         }
 
@@ -91,4 +95,15 @@ public class UpdateScript : MonoBehaviour {
         UnPauseScripts = null;
 }
 
+    public void OnPause()
+    {
+        isPaused = true;
+        Time.timeScale = 0;
+    }
+
+    public void OnUnPause()
+    {
+        isPaused = false;
+        Time.timeScale = 1;
+    }
 }

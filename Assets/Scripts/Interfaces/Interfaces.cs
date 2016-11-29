@@ -14,10 +14,6 @@ public interface IFiring
     float HitTarget(float damageDone);
 }
 
-public interface IMoving
-{
-    void moveHandler();
-}
 
 public interface IHealth
 {

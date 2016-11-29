@@ -72,9 +72,6 @@ https://unity3d.com/learn/tutorials/topics/scripting
  /*
   Things to do:
   -Update health scripts?
-  -Moveplayer might have repeating code.
-  -Possibly remove IPausable implementation.
-  -Check IMoving
 
   
   CHECK FOR STUFF 11/28/2016:
