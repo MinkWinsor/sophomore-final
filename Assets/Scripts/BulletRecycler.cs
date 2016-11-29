@@ -11,10 +11,10 @@ public class BulletRecycler : Recycler {
     //CALLED BY:
     //INPUTS:
     //OUTPUTS:
-    void Start()
+    protected override void Start()
     {
         RecyclableItems = new List<Recyclable>();
-        Bullet.BulletRecyclerAction += RecycleActionHandler;
+        Bullet.RecyclerAction += RecycleActionHandler;
     }
 
     //FUNCTION:

@@ -17,7 +17,7 @@ public class RecycleEnemies : Recycler
 
     //FUNCTION:
     //CALLED BY:
-    void Start()
+    protected override void Start()
     {
         RecyclableItems = new List<Recyclable>();
         EnemyRecyclable.EnemyRecyclerAction += RecycleActionHandler;

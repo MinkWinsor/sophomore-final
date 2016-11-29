@@ -9,7 +9,7 @@ using System;
 
 public class Bullet : Recyclable {
 
-    public static Action<Bullet> BulletRecyclerAction;
+    public static Action<Bullet> RecyclerAction;
 
     //private Vector3 targetPos;
     public float speed = 100;
@@ -23,10 +23,10 @@ public class Bullet : Recyclable {
     {
         UpdateScript.GraphicalUpdates += moveBullet;
 
-        if (BulletRecyclerAction != null)
+        if (RecyclerAction != null)
         {
 
-            BulletRecyclerAction(this);
+            RecyclerAction(this);
         }
         else
         {

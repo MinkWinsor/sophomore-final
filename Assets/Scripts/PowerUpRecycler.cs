@@ -11,10 +11,10 @@ public class PowerUpRecycler : Recycler {
 
     //FUNCTION:
     //CALLED BY:
-    void Start()
+    protected override void Start()
     {
         RecyclableItems = new List<Recyclable>();
-        PowerUp.PowerUpRecyclerAction += RecycleActionHandler;
+        PowerUp.RecyclerAction += RecycleActionHandler;
     }
     
 
