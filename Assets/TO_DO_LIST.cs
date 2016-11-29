@@ -75,8 +75,6 @@ https://unity3d.com/learn/tutorials/topics/scripting
   -Moveplayer might have repeating code.
   -Possibly remove IPausable implementation.
   -Check IMoving
-  -check if LevelLoader scripts being private is going to be an issue.
-  -Fix jumpy unitshooter
 
   
   CHECK FOR STUFF 11/28/2016:

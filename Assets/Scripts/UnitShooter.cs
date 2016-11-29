@@ -29,12 +29,12 @@ public class UnitShooter : Unit, IFiring {
     //CALLED BY:
     //INPUTS:
     //OUTPUTS:
-    public IEnumerator Fire(Vector3 target)
+    public IEnumerator Fire(Transform target)
     {
         while (CanShoot)
         { 
             yield return new WaitForSeconds(FireRate);
-            myBulletRecycler.FireBullet(this.transform.position, target);
+            myBulletRecycler.FireBullet(this.transform.position, target.position);
         }
         
     }

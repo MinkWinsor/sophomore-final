@@ -6,7 +6,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ProximityColission : MonoBehaviour {
+public class StartFireScript : MonoBehaviour {
 
     //-Private Variables-//
     private MoveOnNavMesh meshAgentScript;
@@ -26,15 +26,14 @@ public class ProximityColission : MonoBehaviour {
     void OnTriggerEnter (Collider other) {
         meshAgentScript.StopMoving();
         
-        shootCoroutine = shooterScript.Fire(other.transform.position);
+        shootCoroutine = shooterScript.Fire(other.transform);
         StartCoroutine(shootCoroutine);
     }
 
-    //FUNCTION: When player leaves collission, firing stops, and enemy starts moving at player again.
-    //CALLED BY: Unity game engine when player leaves collider area.
-    void OnTriggerExit()
+    public void StopLocalCoroutine()
     {
-        meshAgentScript.StartMoving();
         StopCoroutine(shootCoroutine);
     }
+
+    
 }
