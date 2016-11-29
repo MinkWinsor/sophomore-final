@@ -35,7 +35,8 @@ public class StartFireScript : MonoBehaviour {
     //CALLED BY: CeaseFireScript.OnTriggerExit
     public void StopLocalCoroutine()
     {
-        StopCoroutine(shootCoroutine);
+        if(shootCoroutine != null)
+            StopCoroutine(shootCoroutine);
     }
 
     

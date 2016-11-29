@@ -71,13 +71,12 @@ https://unity3d.com/learn/tutorials/topics/scripting
 
  /*
   Things to do:
-  -Update health scripts?
-
+  ALL DONE!
   
   CHECK FOR STUFF 11/28/2016:
   only 3 coroutines~~
 
-  Coroutine now added.
+  Coroutine now added. 11/29/2016
   
   
   

@@ -29,6 +29,7 @@ public class PowerUpRecycler : Recycler {
     }
     
     //FUNCTION: Spawns power ups on spawn points on a timer.
+    //CALLED BY: Start function
     IEnumerator SpawnOnTimer()
     {
         while (CanSpawn) //Can be stopped by setting this to false.

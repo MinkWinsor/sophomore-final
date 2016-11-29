@@ -29,7 +29,7 @@ public abstract class PowerUp : Recyclable {
         }
     }
 
-    //All power ups must collide with the player, as that is when they do what power ups do.
+    //FUNCTION: All power ups must collide with the player, as that is when they do what power ups do.
     protected abstract void OnTriggerEnter(Collider other);
 
 }

@@ -1,7 +1,6 @@
 ﻿/*
  This script is the only script that uses Update and FixedUpdate.
  All other scripts that need to update on a per-frame basis use actions in this script.
- 
  */
 
  //Required Libraries
@@ -13,11 +12,11 @@ public class UpdateScript : MonoBehaviour, IPausable {
 
     //-Public Variables-//
     //Actions are used by many scripts to allow updating on update, when user presses keys, etc.
-    public static Action<KeyCode> UserMovementInput; //For moving the player.
+    public static Action<KeyCode> UserMovementInput; //Inputs
     public static Action GraphicalUpdates; //For updating graphics that need updating every frame.
     public static Action PhysicsUpdates; //For objects that need to move on each physics update.
     public static Action PauseScripts; //For any code that should run when game is paused.
-    public static Action UnPauseScripts; //Same as above, for code that runs when game is unpaused.
+    public static Action UnPauseScripts;
 
     //-Private Variables-//
     private bool isPaused = false;
@@ -56,16 +55,13 @@ public class UpdateScript : MonoBehaviour, IPausable {
         //Pausing the game
         if (Input.GetKeyDown(KeyCode.Space) && PauseScripts != null)
         {
-            
             if (!isPaused)
             {
                 PauseScripts();
-
             }
             else
             {
                 UnPauseScripts();
-                
             }
         }
 
@@ -95,12 +91,16 @@ public class UpdateScript : MonoBehaviour, IPausable {
         UnPauseScripts = null;
 }
 
+    //FUNCTION: Sets time scale to 0 when game is paused to stop Update and time based scripts.
+    //CALLED BY: UpdateScript.PauseScripts action
     public void OnPause()
     {
         isPaused = true;
         Time.timeScale = 0;
     }
 
+    //FUNCTION: Sets time scale to 1 when game is unpaused.
+    //CALLED BY: UpdateScript.UnPauseScripts action
     public void OnUnPause()
     {
         isPaused = false;
