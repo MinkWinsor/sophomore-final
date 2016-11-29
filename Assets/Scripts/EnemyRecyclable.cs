@@ -11,9 +11,6 @@ public class EnemyRecyclable : Recyclable {
 
     //-Public Variables-//
     public static Action<EnemyRecyclable> EnemyRecyclerAction;
-    public Transform targetPos;
-    public float speed = 100;
-    public float damagePerBullet = 10;
 
     //FUNCTION:
     //CALLED BY:

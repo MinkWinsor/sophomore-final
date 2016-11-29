@@ -40,7 +40,7 @@ public class Bullet : Recyclable {
     private void moveBullet()
     {
         
-        transform.position += transform.forward * Time.deltaTime;
+        transform.position += transform.forward * Time.deltaTime * speed;
     }
 
     //FUNCTION:

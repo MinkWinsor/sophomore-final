@@ -1,5 +1,6 @@
 ﻿/*
  This script is used by the UnitShooter type of enemy, to determine if the player is within firing range.
+ Works in conjunction with CeaseFireScript.
  */
 
 //Required Libraries
@@ -26,10 +27,12 @@ public class StartFireScript : MonoBehaviour {
     void OnTriggerEnter (Collider other) {
         meshAgentScript.StopMoving();
         
-        shootCoroutine = shooterScript.Fire(other.transform);
+        shootCoroutine = shooterScript.Fire(other.transform); //We use a reference so we can stop it later.
         StartCoroutine(shootCoroutine);
     }
 
+    //FUNCTION: Stops coroutine, to stop multiple coroutines from running.
+    //CALLED BY: CeaseFireScript.OnTriggerExit
     public void StopLocalCoroutine()
     {
         StopCoroutine(shootCoroutine);
