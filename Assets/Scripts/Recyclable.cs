@@ -14,8 +14,7 @@ public abstract class Recyclable : MonoBehaviour {
     //-Public Variables-//
     //public static Action<Recyclable> RecyclerAction; //Each script should have their own version of this.
 
-    //FUNCTION: This function should always be overriden. The recyclerAction should be reused with a class-specific name.
-    //CALLED BY: Unity Game Engine
+    //FUNCTION: This function should always be overriden. Example is shown.
     protected abstract void Start();
         /*if (RecyclerAction != null)
         {

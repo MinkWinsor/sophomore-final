@@ -9,8 +9,6 @@ public class BulletRecycler : Recycler {
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     protected override void Start()
     {
         RecyclableItems = new List<Recyclable>();
@@ -20,17 +18,6 @@ public class BulletRecycler : Recycler {
     //FUNCTION:
     //CALLED BY:
     //INPUTS:
-    //OUTPUTS:
-    public override int RecycleOneObject() //DELETE THIS?
-    {
-        int previousIndex = base.RecycleOneObject();
-        return previousIndex;
-    }
-
-    //FUNCTION:
-    //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     public void FireBullet(Vector3 start, Vector3 end)
     {
         RecyclableItems[listIndex].transform.position = start;

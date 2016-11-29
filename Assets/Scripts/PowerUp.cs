@@ -1,5 +1,6 @@
 ﻿/*
- 
+ This script is the basis for power ups. It's important that power ups derive from here so that
+ the power up recycler can recycle all types of power ups at once by using a generic type.
  */
 
 //Required Libraries
@@ -27,6 +28,7 @@ public abstract class PowerUp : Recyclable {
         }
     }
 
+    //All power ups must collide with the player, as that is when they do what power ups do.
     protected abstract void OnTriggerEnter(Collider other);
 
 }

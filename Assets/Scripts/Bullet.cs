@@ -1,5 +1,7 @@
 ﻿/*
- 
+ Bullet script. Bullets are recyclable objects that can be used multiple times, and hurt whatever they hit.
+ Bullets should only be on layers that can hit Units with IHealth.
+ Currently in the game, only enemies have bullets.
  */
 
 //Required Libraries
@@ -9,16 +11,14 @@ using System;
 
 public class Bullet : Recyclable {
 
+    //-Public Variables-//
     public static Action<Bullet> RecyclerAction;
-
     //private Vector3 targetPos;
     public float speed = 100;
     public float damagePerBullet = 10;
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     protected override void Start()
     {
         UpdateScript.GraphicalUpdates += moveBullet;
@@ -37,8 +37,6 @@ public class Bullet : Recyclable {
 
     //FUNCTION:
     //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
     private void moveBullet()
     {
         
@@ -48,7 +46,6 @@ public class Bullet : Recyclable {
     //FUNCTION:
     //CALLED BY:
     //INPUTS:
-    //OUTPUTS:
     void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<UnitPlayer>())
