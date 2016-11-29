@@ -11,7 +11,6 @@ using System.Collections.Generic;
 public class RecycleEnemies : Recycler
 {
     //-Public Variables-//
-    //public new List<Recyclable> RecyclableItems;
     public float TimeToWait = 1;
     public bool CanSpawn = true;
 
@@ -42,7 +41,7 @@ public class RecycleEnemies : Recycler
     //OUTPUTS:
     public override int RecycleOneObject()
     {
-        int lastIndex = 0;
+        int lastIndex = -1;
         for (int tryCount = 0; tryCount < 6; tryCount++) //Ensures that if all objects are in use, recycler won't pour in extra efforts to recycle something.
         {
             
@@ -53,6 +52,19 @@ public class RecycleEnemies : Recycler
                 startNav(lastIndex);
                 
                 tryCount = 6;
+            }
+            else
+            {
+                lastIndex = listIndex;
+                if (listIndex < RecyclableItems.Count - 1)
+                {
+                    listIndex++;
+                }
+                else
+                {
+                    listIndex = 0;
+                }
+
             }
 
         }
