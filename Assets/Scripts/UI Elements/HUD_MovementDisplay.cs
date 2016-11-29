@@ -18,8 +18,8 @@ public class HUD_MovementDisplay : MonoBehaviour, IPausable {
     //-Private Variables-//
     private CharacterController playerCC;
 
-    //FUNCTION:
-    //CALLED BY:
+    //FUNCTION: Sets up functions to update on the UpdateScript update function.
+    //CALLED BY: Unity game engine
     void Start () {
         UpdateScript.GraphicalUpdates += sliderUpdate;
         UpdateScript.GraphicalUpdates += compassUpdate;
@@ -28,15 +28,15 @@ public class HUD_MovementDisplay : MonoBehaviour, IPausable {
         playerCC = playerRef.GetComponent<CharacterController>();
     }
 
-    //FUNCTION:
-    //CALLED BY:
+    //FUNCTION:Updates function to represent which way player faces.
+    //CALLED BY: UpdateScript.GraphicalUpdates action
     private void compassUpdate()
     {
         compass.transform.eulerAngles = new Vector3(0, 0, -playerRef.rotation.eulerAngles.y);
     }
 
-    //FUNCTION:
-    //CALLED BY:
+    //FUNCTION: Updates speed slider to represent a ratio from 0 to max speed
+    //CALLED BY: UpdateScript.GraphicalUpdates action
     void sliderUpdate () {
         if((Mathf.Abs(playerCC.velocity.x) > Mathf.Abs(playerCC.velocity.z))){
             mySlider.value = (Mathf.Abs(playerCC.velocity.x));
@@ -47,16 +47,16 @@ public class HUD_MovementDisplay : MonoBehaviour, IPausable {
         }
     }
 
-    //FUNCTION:
-    //CALLED BY:
+    //FUNCTION: Stops compass and slider from updating
+    //CALLED BY: UpdateScript.OnPause action
     public void OnPause()
     {
         UpdateScript.GraphicalUpdates -= sliderUpdate;
         UpdateScript.GraphicalUpdates -= compassUpdate;
     }
 
-    //FUNCTION:
-    //CALLED BY:
+    //FUNCTION: Starts compass and slider updating
+    //CALLED BY: UpdateScript.OnPause action
     public void OnUnPause()
     {
         UpdateScript.GraphicalUpdates += sliderUpdate;

@@ -15,8 +15,8 @@ public class CameraUpdate : MonoBehaviour, IPausable {
     public const float CAMERA_OFFSET_Y = 15;
     public const float CAMERA_OFFSET_Z = 10;
     
-    //FUNCTION:
-    //CALLED BY:
+    //FUNCTION: Subscribes self to all necessary actions in UpdateScript
+    //CALLED BY: Unity game engine
     void Start ()
     {
         UpdateScript.GraphicalUpdates += positionCamera;
@@ -24,22 +24,22 @@ public class CameraUpdate : MonoBehaviour, IPausable {
         UpdateScript.UnPauseScripts += OnUnPause;
     }
 
-    //FUNCTION:
-    //CALLED BY:
+    //FUNCTION: Moves camera to look at player, based on offset values and player position
+    //CALLED BY: UpdateScript.GraphicalUpdates action
     void positionCamera ()
     {
         transform.position = new Vector3(playerRef.position.x, playerRef.position.y + CAMERA_OFFSET_Y, playerRef.position.z - CAMERA_OFFSET_Z);
 	}
 
-    //FUNCTION:
-    //CALLED BY:
+    //FUNCTION: Stops camera tracking the player.
+    //CALLED BY: UpdateScript.OnPause action
     public void OnPause()
     {
         UpdateScript.GraphicalUpdates -= positionCamera;
     }
 
-    //FUNCTION:
-    //CALLED BY:
+    //FUNCTION: Starts tracking again
+    //CALLED BY: UpdateScript.OnUnPause action.
     public void OnUnPause()
     {
         UpdateScript.GraphicalUpdates += positionCamera;
