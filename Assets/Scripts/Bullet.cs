@@ -13,12 +13,11 @@ public class Bullet : Recyclable {
 
     //-Public Variables-//
     public static Action<Bullet> RecyclerAction;
-    //private Vector3 targetPos;
     public float speed = 100;
     public float damagePerBullet = 10;
 
-    //FUNCTION:
-    //CALLED BY:
+    //FUNCTION: On start, bullet adds itself to recycler list.
+    //CALLED BY: Unity game engine
     protected override void Start()
     {
         UpdateScript.PhysicsUpdates += moveBullet;
@@ -33,19 +32,17 @@ public class Bullet : Recyclable {
             print("RECYCLER NULL");
         }
     }
-    
 
-    //FUNCTION:
-    //CALLED BY:
+    //FUNCTION: Moves bullet forward every physics update.
+    //CALLED BY: UpdateScript.PhysicsUpdates
     private void moveBullet()
     {
-        
         transform.position += transform.forward * Time.deltaTime * speed;
     }
 
-    //FUNCTION:
-    //CALLED BY:
-    //INPUTS:
+    //FUNCTION: When bullet hits, damage is dealt to player.
+    //CALLED BY: Unity game engine
+    //INPUTS: Collider of player.
     void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<UnitPlayer>())
@@ -53,6 +50,6 @@ public class Bullet : Recyclable {
             other.GetComponent<UnitPlayer>().TakeDamage(damagePerBullet);
         }
 
-        gameObject.SetActive(false);
+        gameObject.SetActive(false); //Bullet deactivated so it can be used again.
     }
 }

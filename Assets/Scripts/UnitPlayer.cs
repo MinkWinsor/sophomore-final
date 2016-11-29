@@ -11,9 +11,9 @@ public class UnitPlayer : Unit, IHealth {
     
 
     //FUNCTION: Implented from IHealth, reduces health amount of the player. Updates health bar.
-    //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
+    //CALLED BY: Anything that wants to deal damage to the player.
+    //INPUTS: Amount of damage to deal
+    //OUTPUTS: Health afterwards
     public override float TakeDamage(float _damage)
     {
         base.TakeDamage(_damage);
@@ -22,10 +22,10 @@ public class UnitPlayer : Unit, IHealth {
         return health;
     }
 
-    //FUNCTION:
-    //CALLED BY:
-    //INPUTS:
-    //OUTPUTS:
+    //FUNCTION: Implemented from IHealth, adds health to player, updates health bar.
+    //CALLED BY: Anything that wants to heal player.
+    //INPUTS: Amount to add
+    //OUTPUTS: Health afterwards.
     public override float AddHealth(float _addedHealth)
     {
         base.AddHealth(_addedHealth);
@@ -34,8 +34,8 @@ public class UnitPlayer : Unit, IHealth {
         return (health);
     }
 
-    //FUNCTION:
-    //CALLED BY:
+    //FUNCTION: Reloads level
+    //CALLED BY: TakeDamage script, or anything that would kill player.
     public override void Kill()
     {
         LevelLoader.ReloadCurrentScene();

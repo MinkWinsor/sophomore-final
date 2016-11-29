@@ -1,16 +1,22 @@
-﻿using UnityEngine;
+﻿/*
+ This script is for displaying the HUD elements of speed and direction.
+ */
+
+//Required Libraries
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System;
 
 public class HUD_MovementDisplay : MonoBehaviour, IPausable {
 
+    //-Public Variables-//
     public Slider mySlider;
     public Image compass;
     public Transform playerRef;
    
+    //-Private Variables-//
     private CharacterController playerCC;
-    //private movePlayer playerRefScript;
 
 	// Use this for initialization
 	void Start () {
