@@ -33,14 +33,7 @@ public class Bullet : Recyclable {
             print("RECYCLER NULL");
         }
     }
-
-    /*public void SetTarget(Vector3 newTarget)
-    {
-        float step = speed * Time.deltaTime;
-        print(targetPos);
-        targetPos = Vector3.MoveTowards(transform.position, newTarget, step);
-        print(targetPos);
-    }*/
+    
 
     //FUNCTION:
     //CALLED BY:

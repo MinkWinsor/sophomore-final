@@ -31,6 +31,13 @@ public class LevelLoader : MonoBehaviour {
         Application.Quit();
     }
 
+    //FUNCTION: Reloads level
+    //CALLED BY: Anything function to reload, like player when it dies.
+    public static void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     //FUNCTION: Decides which scene to load based on parameters given.
     //CALLED BY: Any object with a reference that wants to change the scene.
     //INPUTS: Integer for the scene, -1 if calling to quit the game.

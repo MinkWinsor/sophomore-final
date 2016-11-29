@@ -38,6 +38,6 @@ public class UnitPlayer : Unit, IHealth {
     //CALLED BY:
     public override void Kill()
     {
-        SceneControl.ReloadCurrentScene();
+        LevelLoader.ReloadCurrentScene();
     }
 }

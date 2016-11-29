@@ -5,20 +5,17 @@
 //Required Libraries
 using UnityEngine;
 using System.Collections;
-using System;
 
-//NOT YET IMPLEMENTED.
 public class AddHealthPowerUp : PowerUp
 {
     
     public float HealthToAdd = 100;
 
     
-    protected override void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider _other)
     {
-        print("COLLISSION");
-        UnitPlayer unitToDamage = other.GetComponent<UnitPlayer>();
-        unitToDamage.AddHealth(HealthToAdd);
+        UnitPlayer unitToHeal = _other.GetComponent<UnitPlayer>();
+        unitToHeal.AddHealth(HealthToAdd);
         gameObject.SetActive(false);
     }
 }
