@@ -10,6 +10,7 @@ using System;
 
 public abstract class PowerUp : Recyclable {
 
+    //-Public Variables-//
     public static Action<PowerUp> RecyclerAction; //Used to add itself to lists in the recycler.
 
     //FUNCTION: If a recycler exists, and has added itself to the action, we pass this object as a PowerUp to the Recycler.

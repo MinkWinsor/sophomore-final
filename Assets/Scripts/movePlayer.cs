@@ -91,13 +91,9 @@ public class MovePlayer : MonoBehaviour, IPausable {
         //Player drag occurs whenever player is turning or isn't moving.
         if (!Input.GetKey(KeyCode.UpArrow) || rotatedRecently)
         {
-            if (force.x > 0)
+            if (force.x != 0)
                 force.x -= force.x * dragFactor * Time.deltaTime;
-            if (force.z > 0)
-                force.z -= force.z * dragFactor * Time.deltaTime;
-            if (force.x < 0)
-                force.x -= force.x * dragFactor * Time.deltaTime;
-            if (force.z < 0)
+            if (force.z != 0)
                 force.z -= force.z * dragFactor * Time.deltaTime;
             rotatedRecently = false;
         }
@@ -113,13 +109,9 @@ public class MovePlayer : MonoBehaviour, IPausable {
         //Causes major drag on the player.
         for(int i = 0; i < 10; i++)
         {
-            if (force.x > 0)
+            if (force.x != 0) //Now Anthony, before you whine that this code block is copy-paste, this one isn't meant to use Time.deltaTime.
                 force.x -= force.x * dragFactor;
-            if (force.z > 0)
-                force.z -= force.z * dragFactor;
-            if (force.x < 0)
-                force.x -= force.x * dragFactor;
-            if (force.z < 0)
+            if (force.z != 0)
                 force.z -= force.z * dragFactor;
             yield return new WaitForSeconds(0.1f);
         }
